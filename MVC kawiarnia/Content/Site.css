@@ -22,3 +22,26 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+
+.jumbotron {
+    background: url('Image/pumpkin-on-the-jute-background-1475658606l4v.jpg') no-repeat center center;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    color: #ffffff
+}
+
+.centered {
+    text-align: center;
+    font-size: 0;
+}
+
+    .centered > div {
+        float: none;
+        display: inline-block;
+        text-align: center;
+        font-size: 13px;
+    }
