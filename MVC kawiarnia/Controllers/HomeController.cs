@@ -13,7 +13,7 @@ namespace MVC_kawiarnia.Controllers
         private ReviewContext db = new ReviewContext();
         public ActionResult Index()
         {
-            return View(db.Messages.ToList());
+            return View(db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList());
         }
 
         public ActionResult About()
