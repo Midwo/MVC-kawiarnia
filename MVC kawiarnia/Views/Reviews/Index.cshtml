@@ -13,13 +13,22 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.RatingEmployees.RatingEmployeesId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingMeals.RatingMealsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingPlace.RatingPlaceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingSummary.RatingPlaceText)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ReviewText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
         </th>
         <th></th>
     </tr>
@@ -27,13 +36,22 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.RatingEmployees.RatingEmployeesId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingMeals.RatingMealsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingPlace.RatingPlaceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingSummary.RatingPlaceText)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReviewText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ReviewsId }) |

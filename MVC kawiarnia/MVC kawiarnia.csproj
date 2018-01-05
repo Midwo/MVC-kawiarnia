@@ -201,14 +201,24 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RatingEmployeesController.cs" />
+    <Compile Include="Controllers\RatingMealsController.cs" />
+    <Compile Include="Controllers\RatingPlacesController.cs" />
+    <Compile Include="Controllers\RatingSummariesController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="DAL\ApplicationAccountInictializer.cs" />
+    <Compile Include="DAL\QuestionsContext.cs" />
     <Compile Include="DAL\ReviewContext.cs" />
+    <Compile Include="DAL\ReviewsInictializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Reviews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -270,12 +280,32 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\RatingSummaries\Create.cshtml" />
+    <Content Include="Views\RatingSummaries\Delete.cshtml" />
+    <Content Include="Views\RatingSummaries\Details.cshtml" />
+    <Content Include="Views\RatingSummaries\Edit.cshtml" />
+    <Content Include="Views\RatingSummaries\Index.cshtml" />
+    <Content Include="Views\RatingEmployees\Create.cshtml" />
+    <Content Include="Views\RatingEmployees\Delete.cshtml" />
+    <Content Include="Views\RatingEmployees\Details.cshtml" />
+    <Content Include="Views\RatingEmployees\Edit.cshtml" />
+    <Content Include="Views\RatingEmployees\Index.cshtml" />
+    <Content Include="Views\RatingMeals\Create.cshtml" />
+    <Content Include="Views\RatingMeals\Delete.cshtml" />
+    <Content Include="Views\RatingMeals\Details.cshtml" />
+    <Content Include="Views\RatingMeals\Edit.cshtml" />
+    <Content Include="Views\RatingMeals\Index.cshtml" />
+    <Content Include="Views\RatingPlaces\Create.cshtml" />
+    <Content Include="Views\RatingPlaces\Delete.cshtml" />
+    <Content Include="Views\RatingPlaces\Details.cshtml" />
+    <Content Include="Views\RatingPlaces\Edit.cshtml" />
+    <Content Include="Views\RatingPlaces\Index.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
     <Content Include="Views\Reviews\Delete.cshtml" />
     <Content Include="Views\Reviews\Details.cshtml" />
     <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Index.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

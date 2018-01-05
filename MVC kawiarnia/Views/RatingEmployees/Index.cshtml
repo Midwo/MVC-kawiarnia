@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVC_kawiarnia.Models.RatingEmployees>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingEmployeesInt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingEmployeesInt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RatingEmployeesId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RatingEmployeesId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RatingEmployeesId })
+        </td>
+    </tr>
+}
+
+</table>

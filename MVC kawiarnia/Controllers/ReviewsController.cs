@@ -11,20 +11,18 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
-    [Authorize]
     public class ReviewsController : Controller
     {
         private ReviewContext db = new ReviewContext();
 
         // GET: Reviews
-     // [AllowAnonymous]
         public ActionResult Index()
         {
-            return View(db.Messages.ToList());
+            var messages = db.Messages.Include(r => r.RatingEmployees).Include(r => r.RatingMeals).Include(r => r.RatingPlace).Include(r => r.RatingSummary);
+            return View(messages.ToList());
         }
 
         // GET: Reviews/Details/5
-        
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -42,6 +40,10 @@ namespace MVC_kawiarnia.Controllers
         // GET: Reviews/Create
         public ActionResult Create()
         {
+            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId");
+            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId");
+            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId");
+            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText");
             return View();
         }
 
@@ -50,7 +52,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewsId,Name,ReviewText,Rating")] Reviews reviews)
+        public ActionResult Create([Bind(Include = "ReviewsId,Name,ReviewText,RatingMealsId,RatingEmployeesId,RatingPlaceId,RatingSummaryId")] Reviews reviews)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +61,10 @@ namespace MVC_kawiarnia.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
+            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
+            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
+            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
             return View(reviews);
         }
 
@@ -74,6 +80,10 @@ namespace MVC_kawiarnia.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
+            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
+            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
+            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
             return View(reviews);
         }
 
@@ -82,7 +92,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReviewsId,Name,ReviewText,Rating")] Reviews reviews)
+        public ActionResult Edit([Bind(Include = "ReviewsId,Name,ReviewText,RatingMealsId,RatingEmployeesId,RatingPlaceId,RatingSummaryId")] Reviews reviews)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +100,10 @@ namespace MVC_kawiarnia.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
+            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
+            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
+            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
             return View(reviews);
         }
 

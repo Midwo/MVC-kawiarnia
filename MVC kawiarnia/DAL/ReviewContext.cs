@@ -10,11 +10,17 @@ namespace MVC_kawiarnia.DAL
     public class ReviewContext : DbContext
     {
         public ReviewContext()
-       : base("ReviewsConnectionString")
+
+              : base("DefaultConnection")
+
         {
 
         }
 
         public DbSet<Reviews> Messages { get; set; }
+        public DbSet<RatingEmployees> RatingEmployees { get; set; }
+        public DbSet<RatingMeals> RatingMeals { get; set; }
+        public DbSet<RatingPlace> RatingPlace { get; set; }
+        public DbSet<RatingSummary> RatingSummary { get; set; }
     }
 }

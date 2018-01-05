@@ -13,7 +13,14 @@ namespace MVC_kawiarnia.Controllers
         private ReviewContext db = new ReviewContext();
         public ActionResult Index()
         {
-            return View(db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList());
+
+
+
+
+
+            //return View(db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList());
+            return View(db.Messages.ToList());
+
         }
 
         public ActionResult About()
@@ -29,10 +36,10 @@ namespace MVC_kawiarnia.Controllers
 
             return View();
         }
-        public ActionResult Create(ReviewsController reviewsController)
-        {
-            return View();
-        }
+        //public ActionResult Create(ReviewsController reviewsController)
+        //{
+        //    return View();
+        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ReviewsId,Name,ReviewText,Rating")] Reviews reviews)
