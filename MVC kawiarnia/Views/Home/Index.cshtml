@@ -1,13 +1,25 @@
-﻿@model IEnumerable<MVC_kawiarnia.Models.Reviews>
-
+﻿@model MVC_kawiarnia.Models.MainPageModel
 
 
 @{
     ViewBag.Title = "Home Page";
 }
 <div class="jumbotron">
-    <h1>CafePiano</h1>
-    <p class="lead">Witaj i połącz się z nami: Kawa, tradycja i rodzina.</p>
+    <h1>
+        @foreach (var item in Model.ListJumbtronText.Take(1))
+        {
+            @item.JumbotronIdText1
+        }
+        
+    </h1>
+    <p class="lead">
+        @foreach (var item in Model.ListJumbtronText.Take(1))
+    {
+        @item.JumbotronIdText2
+
+    }
+
+    </p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Przeczytaj więcej &raquo;</a></p>
 </div>
 
@@ -37,53 +49,55 @@
 
 
 <p>
-    @Html.ActionLink("Dodaj swoją opinię!", "Create")
+    @Html.ActionLink("Dodaj swoją opinię!", "Create", "Reviews")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RatingEmployees.RatingEmployeesId)
+               <th>
+            @Html.DisplayNameFor(model => model.Reviews.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RatingMeals.RatingMealsId)
+            @Html.DisplayNameFor(model => model.Reviews.ReviewText)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RatingPlace.RatingPlaceId)
+            @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RatingSummary.RatingPlaceText)
+            @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReviewText)
+            @Html.DisplayNameFor(model => model.Reviews.RatingSummary.RatingPlaceText)
         </th>
+
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.ListReviews.Take(5))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingEmployees.RatingEmployeesId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingMeals.RatingMealsId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingPlace.RatingPlaceId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingSummary.RatingPlaceText)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewText)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingEmployees.RatingEmployeesId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingMeals.RatingMealsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingPlace.RatingPlaceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingSummary.RatingPlaceText)
+        </td>
+
+    </tr>
     }
 
 </table>

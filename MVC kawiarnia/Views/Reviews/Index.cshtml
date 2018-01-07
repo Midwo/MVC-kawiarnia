@@ -8,10 +8,16 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Utwórz nową opinie", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewText)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.RatingEmployees.RatingEmployeesId)
         </th>
@@ -24,17 +30,18 @@
         <th>
             @Html.DisplayNameFor(model => model.RatingSummary.RatingPlaceText)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReviewText)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewText)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.RatingEmployees.RatingEmployeesId)
         </td>
@@ -47,16 +54,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.RatingSummary.RatingPlaceText)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReviewText)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewsId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReviewsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewsId })
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.ReviewsId }) |
+            @Html.ActionLink("Detale", "Details", new { id = item.ReviewsId }) |
+            @Html.ActionLink("Usuń", "Delete", new { id = item.ReviewsId })
         </td>
     </tr>
 }

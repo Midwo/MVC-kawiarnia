@@ -18,16 +18,23 @@ namespace MVC_kawiarnia.Models
         [Display(Name = "Opinia")]
         [Required(ErrorMessage = "Musisz wprowadzić treść opini")]
         public string ReviewText { get; set; }
-        
+
+        [Display(Name = "Ocena jedzenia")]
+
         public int RatingMealsId { get; set; }
+
+        [Display(Name = "Ocena obsługi")]
 
         public int RatingEmployeesId { get; set; }
 
+        [Display(Name = "Ocena lokalu")]
+
         public int RatingPlaceId { get; set; }
+
+        [Display(Name = "Ocena ogólna")]
 
         public int RatingSummaryId { get; set; }
 
-        [Display(Name = "Ocena jedzenia")]
         public virtual RatingMeals RatingMeals { get; set; }
 
         public virtual RatingEmployees RatingEmployees { get; set; }

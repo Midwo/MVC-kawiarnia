@@ -19,7 +19,7 @@ namespace MVC_kawiarnia.Controllers
         public ActionResult Index()
         {
             var messages = db.Messages.Include(r => r.RatingEmployees).Include(r => r.RatingMeals).Include(r => r.RatingPlace).Include(r => r.RatingSummary);
-            return View(messages.ToList());
+            return View(messages.OrderByDescending(r => r.ReviewsId).ToList());
         }
 
         // GET: Reviews/Details/5

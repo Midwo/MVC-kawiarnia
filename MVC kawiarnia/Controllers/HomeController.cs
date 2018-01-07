@@ -2,6 +2,7 @@
 using MVC_kawiarnia.Models;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,16 +12,19 @@ namespace MVC_kawiarnia.Controllers
     public class HomeController : Controller
     {
         private ReviewContext db = new ReviewContext();
+        private JumbotronContext db1 = new JumbotronContext();
+       
         public ActionResult Index()
         {
+          MainPageModel db2 = new MainPageModel();
+        //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6)
+            //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6);
+            //db1.Jumbotron.ToList();
 
-
-
-
-
-            //return View(db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList());
-            return View(db.Messages.ToList());
-
+            db2.ListJumbtronText = db1.Jumbotron.ToList();
+            db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
+            return View(db2);
+    
         }
 
         public ActionResult About()
@@ -36,22 +40,21 @@ namespace MVC_kawiarnia.Controllers
 
             return View();
         }
-        //public ActionResult Create(ReviewsController reviewsController)
-        //{
-        //    return View();
-        //}
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewsId,Name,ReviewText,Rating")] Reviews reviews)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Messages.Add(reviews);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(reviews);
+        [Authorize(Roles = "AppAdmin")]
+        public ActionResult AdminPanel()
+        {
+            ViewBag.Message = "Your Admin panel.";
+            MainPageModel db2 = new MainPageModel();
+            //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6)
+            //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6);
+            //db1.Jumbotron.ToList();
+
+            db2.ListJumbtronText = db1.Jumbotron.ToList();
+            db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
+            return View(db2);
         }
+     
+
     }
 }

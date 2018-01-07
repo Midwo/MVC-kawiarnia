@@ -10,9 +10,9 @@ namespace MVC_kawiarnia.Models
 
     public class RatingEmployees
     {
+        [Display(Name = "Ocena obsługi")]
         public int RatingEmployeesId { get; set; }
 
-        [Display(Name = "Ocena pracowników")]
         [Required(ErrorMessage = "Musisz wprowadzić ocenę")]
         public int RatingEmployeesInt { get; set; }
 
@@ -20,9 +20,9 @@ namespace MVC_kawiarnia.Models
 
     public class RatingPlace
     {
+        [Display(Name = "Ocena lokalu")]
         public int RatingPlaceId { get; set; }
 
-        [Display(Name = "Ocena miejsca")]
         [Required(ErrorMessage = "Musisz wprowadzić ocenę")]
         public int RatingPlaceInt { get; set; }
 
@@ -30,9 +30,9 @@ namespace MVC_kawiarnia.Models
 
     public class RatingMeals
     {
+        [Display(Name = "Ocena jedzenia")]
         public int RatingMealsId { get; set; }
 
-        [Display(Name = "Ocena jedzenia")]
         [Required(ErrorMessage = "Musisz wprowadzić ocenę")]
         public int RatingPlaceInt { get; set; }
 
@@ -40,8 +40,10 @@ namespace MVC_kawiarnia.Models
 
     public class RatingSummary
     {
+
         public int RatingSummaryId { get; set; }
-        [Display(Name = "Ocena jedzenia")]
+
+        [Display(Name = "Ocena ogólna")]
         [Required(ErrorMessage = "Musisz wprowadzić tekst")]
         public string RatingPlaceText { get; set; }
     }
