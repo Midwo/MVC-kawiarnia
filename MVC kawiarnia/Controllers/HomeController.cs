@@ -54,7 +54,36 @@ namespace MVC_kawiarnia.Controllers
             db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
             return View(db2);
         }
-     
+
+
+        public ActionResult Create()
+        {
+            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId");
+            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId");
+            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId");
+            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ReviewsId,Name,ReviewText,RatingMealsId,RatingEmployeesId,RatingPlaceId,RatingSummaryId")] Reviews reviews)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Messages.Add(reviews);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
+            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
+            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
+            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
+            return View(reviews);
+        }
+
+
 
     }
 }
