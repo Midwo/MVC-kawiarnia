@@ -31,9 +31,6 @@ namespace MVC_kawiarnia.Models
 
         public int RatingPlaceId { get; set; }
 
-        [Display(Name = "Ocena ogólna")]
-
-        public int RatingSummaryId { get; set; }
 
         public virtual RatingMeals RatingMeals { get; set; }
 
@@ -41,7 +38,6 @@ namespace MVC_kawiarnia.Models
 
         public virtual RatingPlace RatingPlace { get; set; }
 
-        public virtual RatingSummary RatingSummary { get; set; }
 
 
     }

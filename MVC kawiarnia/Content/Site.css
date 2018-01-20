@@ -27,9 +27,9 @@ textarea {
 
 .jumbotron {
     background: url('Image/pumpkin-on-the-jute-background-1475658606l4v.jpg') no-repeat center center;
-    -webkit-background-size: 100%;
+    /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
-    -o-background-size: 100%;
+    -o-background-size: 100%;*/
     background-size: 100%;
     color: #ffffff
 }
@@ -45,3 +45,175 @@ textarea {
         text-align: center;
         font-size: 13px;
     }
+
+
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+    .alert.success {
+        background-color: #4CAF50;
+    }
+
+    .alert.info {
+        background-color: #2196F3;
+    }
+
+    .alert.warning {
+        background-color: #ff9800;
+    }
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
+
+
+.coupon {
+    border: 5px dotted #bbb; /* Dotted border */
+    width: 100%;
+    /*border-radius: 15px;*/ /* Rounded border */
+    margin: 0 auto; /* Center the coupon */
+    max-width: 600px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.container.coupons {
+    padding: 2px 16px;
+    background-color: #f1f1f1;
+}
+
+.promo {
+    background: #ccc;
+    padding: 3px;
+}
+
+.expire {
+    color: red;
+}
+
+.row.coupons{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.centered.fixcoupon {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+
+
+.modal {
+    padding-top: 100px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 black;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+
+
+    button:hover, a:hover {
+        opacity: 0.7;
+    }
+
+
+
+
+
+
+
+.container_message {
+    border: 2px solid #ccc;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+    /* Clear floats after containers */
+    .container_message::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+    .container_message img {
+        float: left;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+
+    /* Increase the font-size of a span element */
+    .container_message span {
+        font-size: 20px;
+        margin-right: 15px;
+    }
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+    .container_message {
+        text-align: center;
+    }
+
+        .container_message img {
+            margin: auto;
+            float: none;
+            display: block;
+        }
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.alignleftnext{
+    float:none;
+}

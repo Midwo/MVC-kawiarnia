@@ -44,8 +44,7 @@ namespace MVC_kawiarnia.Models
         public int RatingSummaryId { get; set; }
 
         [Display(Name = "Ocena ogólna")]
-        [Required(ErrorMessage = "Musisz wprowadzić tekst")]
-        public string RatingPlaceText { get; set; }
+        public decimal RatingPlaceText { get; set; }
     }
 
 

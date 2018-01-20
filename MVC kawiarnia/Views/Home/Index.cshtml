@@ -10,18 +10,20 @@
         {
             @item.JumbotronIdText1
         }
-        
+
     </h1>
     <p class="lead">
         @foreach (var item in Model.ListJumbtronText.Take(1))
-    {
-        @item.JumbotronIdText2
+        {
+            @item.JumbotronIdText2
 
-    }
+        }
 
     </p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Przeczytaj więcej &raquo;</a></p>
+
 </div>
+
 
 <div class="row centered">
 
@@ -48,56 +50,66 @@
 </div>
 
 
+
+
+
+
+<div id="myModal" class="modal fade">
+
+    <div class="card">
+        <h1>Promocja</h1>
+        <img src="~/Content/Image/Icon/icons8-discount-100.png" alt="Promo" style="width:30%">
+        <h2>Do 27.01.2047</h2>
+
+        <p class="title">Zobacz koniecznie nasze nowe kupony!</p>
+
+        <div style="margin: 12px 0;">
+            <p>Więcej o nas na:</p>
+            <a href="https://pl.linkedin.com/in/micha%C5%82-dwojak-586926141"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100000688731893"><i class="fa fa-facebook"></i></a>
+        </div>
+        <p>
+
+            <button type="button" onclick="location.href=('@Url.Action("Contact", "Home")')">Zobacz kupony i promocje</button>
+        </p>
+    </div>
+
+   
+
+</div>
 <p>
     @Html.ActionLink("Dodaj swoją opinię!", "Create", "Home")
 </p>
-<table class="table">
-    <tr>
-               <th>
-            @Html.DisplayNameFor(model => model.Reviews.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reviews.ReviewText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reviews.RatingSummary.RatingPlaceText)
-        </th>
 
-        <th></th>
-    </tr>
+@foreach (var item in Model.ListReviews.Take(5))
+{
+    <div class="container_message">
+        <img src="~/Content/Image/coffee-break-1454539196eJw.jpg" alt="Avatar" style="width: 70px; height: 70px;">
+        <p class="alignright">
+            @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId):  <b>@item.RatingEmployees.RatingEmployeesInt</b>,
+            @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId): <b>@item.RatingMeals.RatingPlaceInt</b>,
+            @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId): <b>@item.RatingPlace.RatingPlaceInt</b>
+        </p>
+        <p><span>@Html.DisplayNameFor(model => model.Reviews.Name): @Html.DisplayFor(modelItem => item.Name). </span>           </p>
+        <p class="alignright">
+          <b>  Ocena ogólna : @(((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3).ToString("#.##"))</b>
+        </p>
+        <div>
 
-    @foreach (var item in Model.ListReviews.Take(5))
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReviewText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingEmployees.RatingEmployeesId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingMeals.RatingMealsId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingPlace.RatingPlaceId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingSummary.RatingPlaceText)
-        </td>
+            <p> @Html.DisplayNameFor(model => model.Reviews.ReviewText):  @Html.DisplayFor(modelItem => item.ReviewText)</p>
 
-    </tr>
-    }
+        </div>
+    </div>
 
-</table>
+
+}
+    
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myModal").modal('show');
+        });
+    </script>
+}

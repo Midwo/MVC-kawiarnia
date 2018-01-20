@@ -19,7 +19,7 @@ namespace MVC_kawiarnia.Controllers
         public ActionResult Index()
         {
            
-            var messages = db.Messages.Include(r => r.RatingEmployees).Include(r => r.RatingMeals).Include(r => r.RatingPlace).Include(r => r.RatingSummary);
+            var messages = db.Messages.Include(r => r.RatingEmployees).Include(r => r.RatingMeals).Include(r => r.RatingPlace);
             return View(messages.OrderByDescending(r => r.ReviewsId).ToList());
         }
 
@@ -44,7 +44,6 @@ namespace MVC_kawiarnia.Controllers
             ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId");
             ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId");
             ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId");
-            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText");
             return View();
         }
 
@@ -65,7 +64,6 @@ namespace MVC_kawiarnia.Controllers
             ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
             ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
             ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
-            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
             return View(reviews);
         }
 
@@ -84,7 +82,6 @@ namespace MVC_kawiarnia.Controllers
             ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
             ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
             ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
-            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
             return View(reviews);
         }
 
@@ -104,7 +101,6 @@ namespace MVC_kawiarnia.Controllers
             ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
             ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
             ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
-            ViewBag.RatingSummaryId = new SelectList(db.RatingSummary, "RatingSummaryId", "RatingPlaceText", reviews.RatingSummaryId);
             return View(reviews);
         }
 
