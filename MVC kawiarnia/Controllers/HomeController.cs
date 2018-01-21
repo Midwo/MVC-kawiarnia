@@ -41,6 +41,13 @@ namespace MVC_kawiarnia.Controllers
             return View();
         }
 
+        public ActionResult Coupons()
+        {
+            ViewBag.Message = "Your coupons page.";
+
+            return View();
+        }
+
         [Authorize(Roles = "AppAdmin")]
         public ActionResult AdminPanel()
         {

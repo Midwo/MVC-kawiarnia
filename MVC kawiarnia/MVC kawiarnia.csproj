@@ -233,10 +233,20 @@
     <Content Include="Content\Image\coffee-latte-11284391087Ksg2.jpg" />
     <Content Include="Content\Image\favicon.ico" />
     <Content Include="Content\Image\Icon\icons8-account-100.png" />
+    <Content Include="Content\Image\Icon\icons8-cell-phone-100.png" />
     <Content Include="Content\Image\Icon\icons8-discount-100.png" />
+    <Content Include="Content\Image\Icon\icons8-friday-100.png" />
     <Content Include="Content\Image\Icon\icons8-good-quality-100.png" />
+    <Content Include="Content\Image\Icon\icons8-monday-100.png" />
     <Content Include="Content\Image\Icon\icons8-news-100.png" />
+    <Content Include="Content\Image\Icon\icons8-phone-100.png" />
+    <Content Include="Content\Image\Icon\icons8-ringer-volume-100.png" />
+    <Content Include="Content\Image\Icon\icons8-saturday-100.png" />
+    <Content Include="Content\Image\Icon\icons8-sunday-100.png" />
+    <Content Include="Content\Image\Icon\icons8-thursday-100.png" />
+    <Content Include="Content\Image\Icon\icons8-tuesday-100.png" />
     <Content Include="Content\Image\Icon\icons8-urgent-message-100.png" />
+    <Content Include="Content\Image\Icon\icons8-wednesday-100.png" />
     <Content Include="Content\Image\latte-spider-web.jpg" />
     <Content Include="Content\Image\pumpkin-on-the-jute-background-1475658606l4v.jpg" />
     <Content Include="favicon.ico" />
@@ -342,6 +352,7 @@
     <Content Include="Views\JumbotronTexts\Details.cshtml" />
     <Content Include="Views\JumbotronTexts\Edit.cshtml" />
     <Content Include="Views\JumbotronTexts\Index.cshtml" />
+    <Content Include="Views\Home\Coupons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

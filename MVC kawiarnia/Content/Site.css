@@ -23,7 +23,9 @@ textarea {
     max-width: 280px;
 }
 
-
+.MiddleSize {
+    max-width: 700px;
+}
 
 .jumbotron {
     background: url('Image/pumpkin-on-the-jute-background-1475658606l4v.jpg') no-repeat center center;
@@ -122,6 +124,10 @@ textarea {
 
 
 
+
+
+
+
 .modal {
     padding-top: 100px;
 }
@@ -158,6 +164,18 @@ button {
     button:hover, a:hover {
         opacity: 0.7;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -217,3 +235,58 @@ button {
 .alignleftnext{
     float:none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.chip {
+    display: inline-block;
+    padding: 0 16px;
+    height: 37px;
+    font-size: 16px;
+    line-height: 37px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    margin-top: 7px;
+}
+
+    .chip i {
+        float: left;
+        margin: 0 10px 0 -11px;
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        text-decoration: none;
+        color: #000;
+        cursor: auto;
+        padding-top: 2px;
+    }
+
+    .chip img {
+        float: left;
+        margin: 0 10px 0 -19px;
+        height: 37px;
+        width: 37px;
+        text-decoration: none;
+        color: #000;
+        cursor: auto;
+    }
