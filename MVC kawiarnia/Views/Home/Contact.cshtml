@@ -1,6 +1,9 @@
-﻿@{
+﻿@model IEnumerable<MVC_kawiarnia.Models.Contact>
+
+@{
     ViewBag.Title = "Contact";
 }
+
 @*<h2>@ViewBag.Title.</h2>
     <h3>@ViewBag.Message</h3>*@
 
@@ -17,17 +20,19 @@
     </address>*@
 
 @*<div class="jumbotron">
-    <h1>
-     
+        <h1>
 
-    </h1>
-    <p class="lead">
-    
 
-    </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Zobacz promocje &raquo;</a></p>
+        </h1>
+        <p class="lead">
 
-</div>*@
+
+        </p>
+        <p><a href="https:" class="btn btn-primary btn-lg">Zobacz promocje &raquo;</a></p>
+
+    </div>*@
+
+
 
 
 
@@ -35,58 +40,63 @@
     <div class="container">
         <div class="well well-sm text-center">
             <h3><strong>Nasza lokalizacja, dane kontaktowe i godziny otwarcia:</strong></h3>
+            @foreach (var item in Model)
+            {
 
+                <div class="chip">
+                    <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Adress)
+                </div>
+                <div class="chip">
+                    <i class="fa fa-phone fa-2x" aria-hidden="true"></i>  @Html.DisplayFor(modelItem => item.Phone)
+                </div>
+                <div class="chip">
+                    <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Company_name)
+                </div>
 
-            <div class="chip">
-                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>Pogoria III Molo Dąbrowa Górnicza
-            </div>
-            <div class="chip">
-                <i class="fa fa-phone fa-2x" aria-hidden="true"></i>690 305 666
-            </div>
-            <div class="chip">
-                <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>CafePiano SP.Zoo
-            </div>
-       
-            <div class="chip">
-                <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>michal@mdwojak.pl
-            </div>
+                <div class="chip">
+                    <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.Email)
+                </div>
 
-            <br />
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-monday-100.png" alt="Monday" width="96" height="96">
-                10:00 - 20:00
-            </div>
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-tuesday-100.png" alt="Monday" width="96" height="96">
-                13:00 - 21:00
-            </div>
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-wednesday-100.png" alt="Monday" width="96" height="96">
-                09:00 - 17:00
-            </div>
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-thursday-100.png" alt="Monday" width="96" height="96">
-                12:00 - 18:00
-            </div>
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-friday-100.png" alt="Monday" width="96" height="96">
-                13:00 - 23:00
-            </div>
-            <br />
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-saturday-100.png" alt="Monday" width="96" height="96">
-                12:00 - 23:00
-            </div>
-            <div class="chip">
-                <img src="~/Content/Image/Icon/icons8-sunday-100.png" alt="Monday" width="96" height="96">
-                12:00 - 21:00
-            </div>
+                <br />
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-monday-100.png" alt="Mo" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.Mo)
+                </div>
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-tuesday-100.png" alt="Tu" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.Tu)
+                </div>
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-wednesday-100.png" alt="We" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.We)
+                </div>
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-thursday-100.png" alt="Th" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.Th)
+                </div>
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-friday-100.png" alt="Fr" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.Fr)
+                </div>
+                <br />
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-saturday-100.png" alt="Sa" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.Sa)
+                </div>
+                <div class="chip">
+                    <img src="~/Content/Image/Icon/icons8-sunday-100.png" alt="Su" width="96" height="96">
+                    @Html.DisplayFor(modelItem => item.Su)
+                </div>
+            }
         </div>
 
         <div class="row">
             <div class="col-md-7">
-                <iframe width="100%" height="315" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJsRczIAXZFkcRhesxLl1xOyQ&key=AIzaSyD65bjIqbgPh6SJ5PioLZ0wzYNq04II-fc" allowfullscreen></iframe>
-                @*<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+                @foreach (var item in Model)
+                {
+                    <iframe width="100%" height="315" frameborder="0" style="border:0" src="@Html.DisplayFor(modelItem => item.Url)" allowfullscreen></iframe>
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+                }
             </div>
             <div class="col-md-5">
                 <h4><strong>Napisz do nas!</strong></h4>
@@ -110,5 +120,6 @@
             </div>
         </div>
     </div>
+
 </section>
 

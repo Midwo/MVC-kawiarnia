@@ -1,0 +1,115 @@
+﻿@model MVC_kawiarnia.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.We)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.We)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Th)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Th)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Su)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Su)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

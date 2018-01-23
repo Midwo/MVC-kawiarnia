@@ -24,6 +24,7 @@ namespace MVC_kawiarnia
             Database.SetInitializer<ApplicationDbContext>(new ApplicationAccountInictializer());
             Database.SetInitializer<ReviewContext>(new ReviewsInictializer());
             Database.SetInitializer<JumbotronContext>(new JumbotronInictializer());
+            Database.SetInitializer<ContactContext>(new ContactInictilizer());
         }
     }
 }

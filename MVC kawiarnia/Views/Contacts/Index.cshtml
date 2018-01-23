@@ -1,0 +1,100 @@
+﻿@model IEnumerable<MVC_kawiarnia.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.We)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Th)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Su)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.We)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Th)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Su)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContactId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContactId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContactId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -13,7 +13,8 @@ namespace MVC_kawiarnia.Controllers
     {
         private ReviewContext db = new ReviewContext();
         private JumbotronContext db1 = new JumbotronContext();
-       
+        private ContactContext db3 = new ContactContext();
+
         public ActionResult Index()
         {
           MainPageModel db2 = new MainPageModel();
@@ -37,8 +38,9 @@ namespace MVC_kawiarnia.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
-            return View();
+     
+            return View(db3.Contact.ToList());
+ 
         }
 
         public ActionResult Coupons()
@@ -89,6 +91,11 @@ namespace MVC_kawiarnia.Controllers
         }
 
 
+        public ActionResult Policy()
+        {
+            ViewBag.Message = "Polityka Cookies";
 
+            return View();
+        }
     }
 }
