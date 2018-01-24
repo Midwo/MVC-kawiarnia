@@ -58,6 +58,7 @@ namespace MVC_kawiarnia.Controllers
 
             return View(contactMessage);
         }
+      
 
         // GET: ContactMessages/Edit/5
         public ActionResult Edit(int? id)

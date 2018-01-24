@@ -219,6 +219,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactMessage.cs" />
+    <Compile Include="Models\ContactMix.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JumbotronText.cs" />
     <Compile Include="Models\MainPageModel.cs" />

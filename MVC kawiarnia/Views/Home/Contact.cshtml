@@ -1,7 +1,8 @@
-﻿@model IEnumerable<MVC_kawiarnia.Models.Contact>
+﻿@model MVC_kawiarnia.Models.ContactMix
 
 @{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @*<h2>@ViewBag.Title.</h2>
@@ -40,7 +41,7 @@
     <div class="container">
         <div class="well well-sm text-center">
             <h3><strong>Nasza lokalizacja, dane kontaktowe i godziny otwarcia:</strong></h3>
-            @foreach (var item in Model)
+            @foreach (var item in Model.ListContact)
             {
 
                 <div class="chip">
@@ -92,14 +93,14 @@
 
         <div class="row">
             <div class="col-md-7">
-                @foreach (var item in Model)
+                @foreach (var item in Model.ListContact)
                 {
                     <iframe width="100%" height="315" frameborder="0" style="border:0" src="@Html.DisplayFor(modelItem => item.Url)" allowfullscreen></iframe>
                     @*<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>*@
                 }
             </div>
             <div class="col-md-5">
-                <h4><strong>Napisz do nas!</strong></h4>
+                <h4><strong>Napisz do nas! Odpowiemy Ci niezwłocznie.</strong></h4>
                 <form>
                     <div class="form-group">
                         <input type="text" class="form-control MiddleSize" name="" value="" placeholder="Imię">
@@ -123,3 +124,61 @@
 
 </section>
 
+
+@using (Html.BeginForm("Contact", "Home"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ContactMessage</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactMessage.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactMessage.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactMessage.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactMessage.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactMessage.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactMessage.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactMessage.QuestionText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactMessage.QuestionText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.QuestionText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactMessage.PhonePreferred, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ContactMessage.PhonePreferred)
+                    @Html.ValidationMessageFor(model => model.ContactMessage.PhonePreferred, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

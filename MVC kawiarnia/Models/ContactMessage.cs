@@ -21,6 +21,7 @@ namespace MVC_kawiarnia.Models
         
         [Display(Name = "Numer telefonu:")]
         [Phone]
+        [Required]
         [RegularExpression(@"([\+]){0,1}([0-9]{2})?[\-\s]?[-]?([0-9]{3})\-?[-\s]?([0-9]{3})[-\s]\-?([0-9]{3})$",
             ErrorMessage = "Numer musi być zapisany w formacie 123-123-123")]
         public string PhoneNumber { get; set; }
