@@ -25,6 +25,8 @@ namespace MVC_kawiarnia
             Database.SetInitializer<ReviewContext>(new ReviewsInictializer());
             Database.SetInitializer<JumbotronContext>(new JumbotronInictializer());
             Database.SetInitializer<ContactContext>(new ContactInictilizer());
+            Database.SetInitializer<WorkersListContext>(new WorkersListInictializer());
+            Database.SetInitializer<SendEmailAccountContext>(new SendEmailAccountInictializer());
         }
     }
 }

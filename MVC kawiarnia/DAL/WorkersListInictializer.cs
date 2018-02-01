@@ -14,12 +14,10 @@ namespace MVC_kawiarnia.DAL
             var WorkersListAdd = new List<WorkersList>
             {
                 new WorkersList { Email = "michal.dwojak92@gmail.com", NameSurname = "Michał Dwojak", WorkersListId = 1 } ,
-                new WorkersList { Email = "jataman92@gmail.com", NameSurname = "" } ,
+                new WorkersList { Email = "jataman92@gmail.com", NameSurname = "Jan Kowalski", WorkersListId = 2} ,
             };
-            RatingEmployees.ForEach(g => context.RatingEmployees.Add(g));
+            WorkersListAdd.ForEach(g => context.WorkersList.Add(g));
             context.SaveChanges();
-
-
         }
     }
 }

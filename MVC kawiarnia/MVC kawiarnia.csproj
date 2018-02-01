@@ -205,6 +205,8 @@
     <Compile Include="Controllers\JumbotronTextsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\SendEmailAccountsController.cs" />
+    <Compile Include="Controllers\WorkersListsController.cs" />
     <Compile Include="DAL\ApplicationAccountInictializer.cs" />
     <Compile Include="DAL\ContactContext.cs" />
     <Compile Include="DAL\ContactInictilizer.cs" />
@@ -213,6 +215,8 @@
     <Compile Include="DAL\JumbotronInictializer.cs" />
     <Compile Include="DAL\ReviewContext.cs" />
     <Compile Include="DAL\ReviewsInictializer.cs" />
+    <Compile Include="DAL\SendEmailAccountContext.cs" />
+    <Compile Include="DAL\SendEmailAccountInictializer.cs" />
     <Compile Include="DAL\WorkersListContext.cs" />
     <Compile Include="DAL\WorkersListInictializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,6 +232,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Reviews.cs" />
+    <Compile Include="Models\SendEmailAccount.cs" />
     <Compile Include="Models\WorkersList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -242,6 +247,7 @@
     <Content Include="Content\Image\favicon.ico" />
     <Content Include="Content\Image\Icon\icons8-account-100.png" />
     <Content Include="Content\Image\Icon\icons8-cell-phone-100.png" />
+    <Content Include="Content\Image\Icon\icons8-checklist-100.png" />
     <Content Include="Content\Image\Icon\icons8-discount-100.png" />
     <Content Include="Content\Image\Icon\icons8-friday-100.png" />
     <Content Include="Content\Image\Icon\icons8-good-quality-100.png" />
@@ -372,6 +378,16 @@
     <Content Include="Views\ContactMessages\Details.cshtml" />
     <Content Include="Views\ContactMessages\Edit.cshtml" />
     <Content Include="Views\ContactMessages\Index.cshtml" />
+    <Content Include="Views\WorkersLists\Create.cshtml" />
+    <Content Include="Views\WorkersLists\Delete.cshtml" />
+    <Content Include="Views\WorkersLists\Details.cshtml" />
+    <Content Include="Views\WorkersLists\Edit.cshtml" />
+    <Content Include="Views\WorkersLists\Index.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Create.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Delete.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Details.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Edit.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

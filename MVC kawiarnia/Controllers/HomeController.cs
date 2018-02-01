@@ -16,6 +16,8 @@ namespace MVC_kawiarnia.Controllers
         private JumbotronContext db1 = new JumbotronContext();
         private ContactContext db3 = new ContactContext();
         private ContactMessageContext db4 = new ContactMessageContext();
+        private WorkersListContext DbWorkserList = new WorkersListContext();
+        private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
 
         public ActionResult Index()
         {
@@ -122,42 +124,48 @@ namespace MVC_kawiarnia.Controllers
         {
             if (ModelState.IsValid)
             {
-                db4.ContactMessage.Add(contactMessage);
-                db4.SaveChanges();
 
-                int port = 587;
-                SmtpClient mailServer = new SmtpClient("smtp.gmail.com", port);
-                mailServer.EnableSsl = true;
-
-                mailServer.Credentials = new System.Net.NetworkCredential("jataman92@gmail.com", "xyz");
-
-                MailMessage msg = new MailMessage();
-                msg.From = new MailAddress("jataman92@gmail.com", "Jatamanek");
-
-                //EmailConf stringListEmail = new EmailConf();
-                //string emaile = stringListEmail.ToString();
+                foreach (var EmailAccount in DbSendEmailAccount.EmailAccount)
+                {
 
 
-                //foreach (string email in EmailConf.ListEmail)
-                //{
-                //    msg.To.Add(email);
-                //}
-                msg.To.Add("michal.dwojak92@gmail.com");
+                    db4.ContactMessage.Add(contactMessage);
+                    db4.SaveChanges();
 
-                msg.Subject = "Ticket - Wysłano wiadomość do CafePanio";
-                msg.Body = "Witaj, wysłano wiadomość od: "+ contactMessage.Name+ ", z "+contactMessage.PhoneNumber+" i adresu: "+contactMessage.Email+". O treści: "+contactMessage.QuestionText+", Kontakt telefoniczny preferowany: "+contactMessage.PhonePreferred+"";
+                   
+                    SmtpClient mailServer = new SmtpClient(EmailAccount.Host, EmailAccount.Port);
+                    mailServer.EnableSsl = true;
 
-                mailServer.Send(msg);
+                    mailServer.Credentials = new System.Net.NetworkCredential(EmailAccount.Email, EmailAccount.Password);
 
+                    MailMessage msg = new MailMessage();
 
+                    msg.From = new MailAddress(EmailAccount.Email, "Powiadomienie Cafe Piano");
 
-
-
-
-
+                    //EmailConf stringListEmail = new EmailConf();
+                    //string emaile = stringListEmail.ToString();
 
 
-                return RedirectToAction("Index");
+                    foreach (var item in DbWorkserList.WorkersList)
+                    {
+                        msg.To.Add(item.Email);
+                    }
+
+                    msg.Subject = "Ticket - Wysłano wiadomość do CafePanio";
+                    msg.Body = "Witaj, wysłano wiadomość od: " + contactMessage.Name + ", z " + contactMessage.PhoneNumber + " i adresu: " + contactMessage.Email + ". O treści: " + contactMessage.QuestionText + ", Kontakt telefoniczny preferowany: " + contactMessage.PhonePreferred + "";
+
+                    mailServer.Send(msg);
+
+
+
+
+
+
+
+
+
+                    return RedirectToAction("Index");
+                }
             }
             ContactMix db2 = new ContactMix();
 
