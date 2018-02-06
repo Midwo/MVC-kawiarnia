@@ -25,6 +25,9 @@
 </div>
 
 
+
+
+
 <div class="row centered">
 
     <div class="col-sm-4 col-md-4">
@@ -74,7 +77,7 @@
         </p>
     </div>
 
-   
+
 
 </div>
 <p>
@@ -92,7 +95,7 @@
         </p>
         <p><span>@Html.DisplayNameFor(model => model.Reviews.Name): @Html.DisplayFor(modelItem => item.Name). </span>           </p>
         <p class="alignright">
-          <b>  Ocena ogólna : @(((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3).ToString("#.##"))</b>
+            <b>  Ocena ogólna : @(((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3).ToString("#.##"))</b>
         </p>
         <div>
 
@@ -103,7 +106,29 @@
 
 
 }
-    
+
+  
+    <div id="newsletter-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
+                    <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
+                    @using (Html.BeginForm("AddNewsletter", "home"))
+                    {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
+
+                @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
+                @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
+                <input type="submit" class="btn btn-custom-3" value="Zapisz się">
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 @section Scripts {

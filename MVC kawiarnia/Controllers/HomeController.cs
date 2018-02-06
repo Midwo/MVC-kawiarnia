@@ -18,6 +18,8 @@ namespace MVC_kawiarnia.Controllers
         private ContactMessageContext db4 = new ContactMessageContext();
         private WorkersListContext DbWorkserList = new WorkersListContext();
         private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
+        private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
+
 
         public ActionResult Index()
         {
@@ -28,9 +30,96 @@ namespace MVC_kawiarnia.Controllers
 
             db2.ListJumbtronText = db1.Jumbotron.ToList();
             db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
+            db2.ListNewsletterListEmail = DbNewsletterListEmail.NewsletterListEmail.ToList();
             return View(db2);
     
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddNewsletter([Bind(Include = "NewsletterListEmailId,Email")] NewsletterListEmail newsletterListEmail)
+        {
+
+
+            if (ModelState.IsValid)
+            {
+                newsletterListEmail.LeaveCode = Convert.ToString(Guid.NewGuid());
+                DbNewsletterListEmail.NewsletterListEmail.Add(newsletterListEmail);
+                DbNewsletterListEmail.SaveChanges();
+               
+
+
+                foreach (var EmailAccount in DbSendEmailAccount.EmailAccount)
+                {
+
+                    SmtpClient mailServer = new SmtpClient(EmailAccount.Host, EmailAccount.Port);
+                    mailServer.EnableSsl = true;
+
+                    mailServer.Credentials = new System.Net.NetworkCredential(EmailAccount.Email, EmailAccount.Password);
+
+                    MailMessage msg = new MailMessage();
+
+                    msg.From = new MailAddress(EmailAccount.Email, "Cafe Piano - Newsletter");
+
+                  
+                        msg.To.Add(newsletterListEmail.Email);
+
+                    msg.Subject = "Cafe Piano - pozytywne zapisanie do newslettera promocji";
+                    msg.Body = "Witaj serdecznie, <br/> Zapisałeś się do newslettera firmy CafePiano - będziemy Cię informować na temat aktualnych promocji <br/>";
+                    msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości w firmie CafePiano - proszę wejść na link: <a href="+ "http://localhost:55321/Home/LeaveNewsletter/" + newsletterListEmail.Email+"/"+newsletterListEmail.LeaveCode+""+">Wypisuję się</a>  ";
+                    msg.IsBodyHtml = true;
+                    mailServer.Send(msg);
+
+                }
+                return RedirectToAction("Index");
+
+            }
+
+            return RedirectToAction("Index");
+        }
+
+ 
+
+        public ActionResult LeaveNewsletter(string email, string guid)
+        {
+
+            using (var listEmailAccountLeave = new NewsletterListEmailContext())
+            {
+                var query_where1 = (from a in listEmailAccountLeave.NewsletterListEmail
+                                   where a.Email ==  email
+                                   where a.LeaveCode == guid
+                                   select a.NewsletterListEmailId);
+
+                if (query_where1.ToList().Count > 0)
+                {
+                    foreach (var item in query_where1)
+                    {
+                        int x = item;
+                        var delete = new NewsletterListEmail { NewsletterListEmailId = x };
+                        DbNewsletterListEmail.NewsletterListEmail.Attach(delete);
+                        DbNewsletterListEmail.NewsletterListEmail.Remove(delete);
+                        DbNewsletterListEmail.SaveChanges();
+                    }
+                  
+                    return Content("Dziękujemy, wypisałeś/łaś się z systemu newsletter");
+                }
+                else
+                {
+                    return HttpNotFound();
+                }   
+                
+            }
+            
+
+            
+            
+          
+            
+             
+            }
+
+      
+
 
         public ActionResult About()
         {
@@ -43,12 +132,7 @@ namespace MVC_kawiarnia.Controllers
         {
             //ViewBag.Message = "Your contact page.";
 
-
-
-
             //return View(db3.Contact.ToList());
-
-
 
             ContactMix db2 = new ContactMix();
             //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6)

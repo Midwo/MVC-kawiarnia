@@ -204,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JumbotronTextsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsletterListEmailsController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\SendEmailAccountsController.cs" />
     <Compile Include="Controllers\WorkersListsController.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="DAL\ContactMessageContext.cs" />
     <Compile Include="DAL\JumbotronContext.cs" />
     <Compile Include="DAL\JumbotronInictializer.cs" />
+    <Compile Include="DAL\NewsletterListEmailContext.cs" />
     <Compile Include="DAL\ReviewContext.cs" />
     <Compile Include="DAL\ReviewsInictializer.cs" />
     <Compile Include="DAL\SendEmailAccountContext.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Models\JumbotronText.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsletterListEmail.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Reviews.cs" />
     <Compile Include="Models\SendEmailAccount.cs" />
@@ -388,6 +391,11 @@
     <Content Include="Views\SendEmailAccounts\Details.cshtml" />
     <Content Include="Views\SendEmailAccounts\Edit.cshtml" />
     <Content Include="Views\SendEmailAccounts\Index.cshtml" />
+    <Content Include="Views\NewsletterListEmails\Create.cshtml" />
+    <Content Include="Views\NewsletterListEmails\Delete.cshtml" />
+    <Content Include="Views\NewsletterListEmails\Details.cshtml" />
+    <Content Include="Views\NewsletterListEmails\Edit.cshtml" />
+    <Content Include="Views\NewsletterListEmails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
