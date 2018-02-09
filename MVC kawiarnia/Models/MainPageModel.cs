@@ -10,8 +10,12 @@ namespace MVC_kawiarnia.Models
         public List<Reviews> ListReviews { get; set; }
         public List<JumbotronText> ListJumbtronText { get; set; }
         public List<NewsletterListEmail> ListNewsletterListEmail { get; set;}
+        public List<InfPromoFirstPage> ListInfPromoFirstPage { get; set; }
+
         public Reviews Reviews { get; set; }
         public JumbotronText JumbtronText { get; set; }
         public NewsletterListEmail NewsletterListEmail { get; set; }
+        public InfPromoFirstPage InfPromoFirstPage { get; set; }
+
     }
 }

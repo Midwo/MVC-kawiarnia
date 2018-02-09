@@ -56,30 +56,36 @@
 
 
 
+@foreach (var item in Model.ListInfPromoFirstPage.Take(1))
+{
+    if (item.Active == true)
+    {
+        <div id="myModal" class="modal fade">
 
-<div id="myModal" class="modal fade">
+            <div class="card">
+                <h1>@item.Title</h1>
+                <img src="~/Content/Image/Icon/@item.InfPromoChoosePicture.ChoosePicture" alt="Promo" style="width:30%">
+                <h2>@item.MainString</h2>
 
-    <div class="card">
-        <h1>Promocja</h1>
-        <img src="~/Content/Image/Icon/icons8-discount-100.png" alt="Promo" style="width:30%">
-        <h2>Do 27.01.2047</h2>
+                <p class="title">@item.UnderString</p>
 
-        <p class="title">Zobacz koniecznie nasze nowe kupony!</p>
+                <div style="margin: 12px 0;">
+                    <p>Więcej o nas na:</p>
+                    <a href="@item.LinkedUrl"><i class="fa fa-linkedin"></i></a>
+                    <a href="@item.FacebookUrl"><i class="fa fa-facebook"></i></a>
+                </div>
+                <p>
 
-        <div style="margin: 12px 0;">
-            <p>Więcej o nas na:</p>
-            <a href="https://pl.linkedin.com/in/micha%C5%82-dwojak-586926141"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=100000688731893"><i class="fa fa-facebook"></i></a>
+                    <button type="button" onclick="location.href=('@Url.Action("Contact", "Home")')">Zobacz kupony i promocje</button>
+                </p>
+            </div>
         </div>
-        <p>
+    }
 
-            <button type="button" onclick="location.href=('@Url.Action("Contact", "Home")')">Zobacz kupony i promocje</button>
-        </p>
-    </div>
+}
 
 
 
-</div>
 <p>
     @Html.ActionLink("Dodaj swoją opinię!", "Create", "Home")
 </p>
@@ -107,28 +113,28 @@
 
 }
 
-  
-    <div id="newsletter-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-                    <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
-                    @using (Html.BeginForm("AddNewsletter", "home"))
-                    {
-                @Html.AntiForgeryToken()
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div id="newsletter-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
+                <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
+                @using (Html.BeginForm("AddNewsletter", "home"))
+                {
+                    @Html.AntiForgeryToken()
 
-                @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
-                @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
-                <input type="submit" class="btn btn-custom-3" value="Zapisz się">
-                    }
-                </div>
+                    @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
+
+                    @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
+                    @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
+                    <input type="submit" class="btn btn-custom-3" value="Zapisz się">
+                }
             </div>
         </div>
     </div>
+</div>
 
 
 @section Scripts {

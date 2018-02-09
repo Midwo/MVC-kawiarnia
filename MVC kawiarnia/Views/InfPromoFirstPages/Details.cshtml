@@ -1,0 +1,77 @@
+﻿@model MVC_kawiarnia.Models.InfPromoFirstPage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InfPromoFirstPage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InfPromoChoosePicture.ChoosePicture)
+
+        </dt>
+
+        <dd>
+            <img src="~/Content/Image/Icon/@Html.DisplayFor(model => model.InfPromoChoosePicture.ChoosePicture)" alt="Promo" style="width:10%">
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnderString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnderString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkedUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkedUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacebookUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacebookUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InfPromoFirstPageId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

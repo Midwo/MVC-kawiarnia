@@ -19,7 +19,7 @@ namespace MVC_kawiarnia.Controllers
         private WorkersListContext DbWorkserList = new WorkersListContext();
         private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
         private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
-
+        private InfPromoFirstPageContext DbInfPromoFirstPage = new InfPromoFirstPageContext();
 
         public ActionResult Index()
         {
@@ -31,6 +31,7 @@ namespace MVC_kawiarnia.Controllers
             db2.ListJumbtronText = db1.Jumbotron.ToList();
             db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
             db2.ListNewsletterListEmail = DbNewsletterListEmail.NewsletterListEmail.ToList();
+            db2.ListInfPromoFirstPage = DbInfPromoFirstPage.InfPromoFirstPage.ToList();
             return View(db2);
     
         }
@@ -110,15 +111,9 @@ namespace MVC_kawiarnia.Controllers
                 
             }
             
-
-            
-            
-          
-            
              
             }
 
-      
 
 
         public ActionResult About()

@@ -27,6 +27,7 @@ namespace MVC_kawiarnia
             Database.SetInitializer<ContactContext>(new ContactInictilizer());
             Database.SetInitializer<WorkersListContext>(new WorkersListInictializer());
             Database.SetInitializer<SendEmailAccountContext>(new SendEmailAccountInictializer());
+            Database.SetInitializer<InfPromoFirstPageContext>(new InfPromoFirstPageInictializer());
         }
     }
 }

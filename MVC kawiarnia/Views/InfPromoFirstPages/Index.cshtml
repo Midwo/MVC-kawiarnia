@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MVC_kawiarnia.Models.InfPromoFirstPage>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InfPromoChoosePicture.ChoosePicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnderString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkedUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacebookUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Content/Image/Icon/@item.InfPromoChoosePicture.ChoosePicture" alt="Promo" style="width:80%">
+          @*  @Html.DisplayFor(modelItem => item.InfPromoChoosePicture.ChoosePicture)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnderString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkedUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacebookUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InfPromoFirstPageId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InfPromoFirstPageId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InfPromoFirstPageId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ContactMessagesController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfPromoFirstPagesController.cs" />
     <Compile Include="Controllers\JumbotronTextsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsletterListEmailsController.cs" />
@@ -212,6 +213,8 @@
     <Compile Include="DAL\ContactContext.cs" />
     <Compile Include="DAL\ContactInictilizer.cs" />
     <Compile Include="DAL\ContactMessageContext.cs" />
+    <Compile Include="DAL\InfPromoFirstPageContext.cs" />
+    <Compile Include="DAL\InfPromoFirstPageInictializer.cs" />
     <Compile Include="DAL\JumbotronContext.cs" />
     <Compile Include="DAL\JumbotronInictializer.cs" />
     <Compile Include="DAL\NewsletterListEmailContext.cs" />
@@ -229,6 +232,8 @@
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\ContactMix.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfPromoChoosePicture.cs" />
+    <Compile Include="Models\InfPromoFirstPage.cs" />
     <Compile Include="Models\JumbotronText.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -251,16 +256,23 @@
     <Content Include="Content\Image\Icon\icons8-account-100.png" />
     <Content Include="Content\Image\Icon\icons8-cell-phone-100.png" />
     <Content Include="Content\Image\Icon\icons8-checklist-100.png" />
+    <Content Include="Content\Image\Icon\icons8-coupon-100.png" />
     <Content Include="Content\Image\Icon\icons8-discount-100.png" />
+    <Content Include="Content\Image\Icon\icons8-file-100.png" />
     <Content Include="Content\Image\Icon\icons8-friday-100.png" />
     <Content Include="Content\Image\Icon\icons8-good-quality-100.png" />
+    <Content Include="Content\Image\Icon\icons8-list-100%281%29.png" />
+    <Content Include="Content\Image\Icon\icons8-menu-100.png" />
     <Content Include="Content\Image\Icon\icons8-monday-100.png" />
+    <Content Include="Content\Image\Icon\icons8-new-100.png" />
     <Content Include="Content\Image\Icon\icons8-news-100.png" />
     <Content Include="Content\Image\Icon\icons8-phone-100.png" />
     <Content Include="Content\Image\Icon\icons8-ringer-volume-100.png" />
+    <Content Include="Content\Image\Icon\icons8-sale-100.png" />
     <Content Include="Content\Image\Icon\icons8-saturday-100.png" />
     <Content Include="Content\Image\Icon\icons8-sunday-100.png" />
     <Content Include="Content\Image\Icon\icons8-thursday-100.png" />
+    <Content Include="Content\Image\Icon\icons8-time-machine-100.png" />
     <Content Include="Content\Image\Icon\icons8-tuesday-100.png" />
     <Content Include="Content\Image\Icon\icons8-urgent-message-100.png" />
     <Content Include="Content\Image\Icon\icons8-wednesday-100.png" />
@@ -396,6 +408,11 @@
     <Content Include="Views\NewsletterListEmails\Details.cshtml" />
     <Content Include="Views\NewsletterListEmails\Edit.cshtml" />
     <Content Include="Views\NewsletterListEmails\Index.cshtml" />
+    <Content Include="Views\InfPromoFirstPages\Create.cshtml" />
+    <Content Include="Views\InfPromoFirstPages\Delete.cshtml" />
+    <Content Include="Views\InfPromoFirstPages\Details.cshtml" />
+    <Content Include="Views\InfPromoFirstPages\Edit.cshtml" />
+    <Content Include="Views\InfPromoFirstPages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
