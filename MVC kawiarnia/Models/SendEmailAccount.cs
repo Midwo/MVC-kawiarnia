@@ -27,5 +27,8 @@ namespace MVC_kawiarnia.Models
         [Required(ErrorMessage = "Musisz wprowadzić hasło do konta email")]
         public string Password { get; set; }
 
+        [Display(Name = "Wyświetlana nazwa")]
+        [Required(ErrorMessage = "Musisz wprowadzić treść")]
+        public string Signature { get; set; }
     }
 }

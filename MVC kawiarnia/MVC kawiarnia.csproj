@@ -237,6 +237,7 @@
     <Compile Include="Models\JumbotronText.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsletterFirstEmail.cs" />
     <Compile Include="Models\NewsletterListEmail.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Reviews.cs" />

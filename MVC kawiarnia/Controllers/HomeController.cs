@@ -207,7 +207,6 @@ namespace MVC_kawiarnia.Controllers
                 foreach (var EmailAccount in DbSendEmailAccount.EmailAccount)
                 {
 
-
                     db4.ContactMessage.Add(contactMessage);
                     db4.SaveChanges();
 
@@ -219,7 +218,7 @@ namespace MVC_kawiarnia.Controllers
 
                     MailMessage msg = new MailMessage();
 
-                    msg.From = new MailAddress(EmailAccount.Email, "Powiadomienie Cafe Piano");
+                    msg.From = new MailAddress(EmailAccount.Email, EmailAccount.Signature);
 
                     //EmailConf stringListEmail = new EmailConf();
                     //string emaile = stringListEmail.ToString();
@@ -234,14 +233,6 @@ namespace MVC_kawiarnia.Controllers
                     msg.Body = "Witaj, wysłano wiadomość od: " + contactMessage.Name + ", z " + contactMessage.PhoneNumber + " i adresu: " + contactMessage.Email + ". O treści: " + contactMessage.QuestionText + ", Kontakt telefoniczny preferowany: " + contactMessage.PhonePreferred + "";
 
                     mailServer.Send(msg);
-
-
-
-
-
-
-
-
 
                     return RedirectToAction("Index");
                 }
