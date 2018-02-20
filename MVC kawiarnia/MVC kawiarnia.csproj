@@ -328,9 +328,13 @@
     <Content Include="fonts\scss\_screen-reader.scss" />
     <Content Include="fonts\scss\_stacked.scss" />
     <Content Include="fonts\scss\_variables.scss" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -402,11 +406,6 @@
     <Content Include="Views\WorkersLists\Details.cshtml" />
     <Content Include="Views\WorkersLists\Edit.cshtml" />
     <Content Include="Views\WorkersLists\Index.cshtml" />
-    <Content Include="Views\SendEmailAccounts\Create.cshtml" />
-    <Content Include="Views\SendEmailAccounts\Delete.cshtml" />
-    <Content Include="Views\SendEmailAccounts\Details.cshtml" />
-    <Content Include="Views\SendEmailAccounts\Edit.cshtml" />
-    <Content Include="Views\SendEmailAccounts\Index.cshtml" />
     <Content Include="Views\NewsletterListEmails\Create.cshtml" />
     <Content Include="Views\NewsletterListEmails\Delete.cshtml" />
     <Content Include="Views\NewsletterListEmails\Details.cshtml" />
@@ -422,9 +421,16 @@
     <Content Include="Views\NewsletterFirstEmails\Details.cshtml" />
     <Content Include="Views\NewsletterFirstEmails\Edit.cshtml" />
     <Content Include="Views\NewsletterFirstEmails\Index.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Create.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Delete.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Details.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Edit.cshtml" />
+    <Content Include="Views\SendEmailAccounts\Index.cshtml" />
+    <Content Include="Views\Home\Uploadx.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Upload\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
@@ -438,7 +444,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

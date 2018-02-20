@@ -47,7 +47,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SendEmailAccountId,Port,Host,Email,Password")] SendEmailAccount sendEmailAccount)
+        public ActionResult Create([Bind(Include = "SendEmailAccountId,Port,Host,Email,Password,Signature")] SendEmailAccount sendEmailAccount)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SendEmailAccountId,Port,Host,Email,Password")] SendEmailAccount sendEmailAccount)
+        public ActionResult Edit([Bind(Include = "SendEmailAccountId,Port,Host,Email,Password,Signature")] SendEmailAccount sendEmailAccount)
         {
             if (ModelState.IsValid)
             {

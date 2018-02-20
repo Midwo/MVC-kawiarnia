@@ -3,6 +3,7 @@ using MVC_kawiarnia.Models;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -20,6 +21,7 @@ namespace MVC_kawiarnia.Controllers
         private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
         private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
         private InfPromoFirstPageContext DbInfPromoFirstPage = new InfPromoFirstPageContext();
+        private NewsletterFirstEmailContext DbNewsletterFirstEmail = new NewsletterFirstEmailContext();
 
         public ActionResult Index()
         {
@@ -60,14 +62,21 @@ namespace MVC_kawiarnia.Controllers
 
                     MailMessage msg = new MailMessage();
 
-                    msg.From = new MailAddress(EmailAccount.Email, "Cafe Piano - Newsletter");
+                    msg.From = new MailAddress(EmailAccount.Email, EmailAccount.Signature);
 
                   
                         msg.To.Add(newsletterListEmail.Email);
 
-                    msg.Subject = "Cafe Piano - pozytywne zapisanie do newslettera promocji";
-                    msg.Body = "Witaj serdecznie, <br/> Zapisałeś się do newslettera firmy CafePiano - będziemy Cię informować na temat aktualnych promocji <br/>";
-                    msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości w firmie CafePiano - proszę wejść na link: <a href="+ "http://localhost:55321/Home/LeaveNewsletter/" + newsletterListEmail.Email+"/"+newsletterListEmail.LeaveCode+""+">Wypisuję się</a>  ";
+                    foreach (var item in DbNewsletterFirstEmail.NewsletterFirstEmail)
+                    {
+                        msg.Subject = item.Title;
+                        msg.Body = item.Body + "<br><br>";
+                        msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://localhost:55321/Home/LeaveNewsletter/" + newsletterListEmail.Email + "/" + newsletterListEmail.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
+                        msg.Body += item.Signature;
+                    }
+
+                   
+
                     msg.IsBodyHtml = true;
                     mailServer.Send(msg);
 
@@ -79,7 +88,29 @@ namespace MVC_kawiarnia.Controllers
             return RedirectToAction("Index");
         }
 
- 
+        [HttpPost]
+        public ActionResult Uploadx(ImageFile objImage)
+        {
+            foreach (var item in objImage.Files)
+            {
+                if (item != null && item.ContentLength > 0)
+                {
+                    item.SaveAs(Path.Combine(Server.MapPath("/Content/Upload"), Path.GetFileName(item.FileName)));
+                }
+
+            }
+            return View();
+        }
+        
+        public ActionResult Uploadx()
+        {
+
+            return View();
+        }
+        public class ImageFile
+        {
+            public List<HttpPostedFileBase> Files { get; set; }
+        }
 
         public ActionResult LeaveNewsletter(string email, string guid)
         {

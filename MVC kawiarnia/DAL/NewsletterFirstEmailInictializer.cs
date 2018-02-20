@@ -14,7 +14,7 @@ namespace MVC_kawiarnia.DAL
 
             var FirstEmailConfigure = new List<NewsletterFirstEmail>
             {
-                new NewsletterFirstEmail {Body = "sdsa", Signature = "asda", Title = "asdas"},
+                new NewsletterFirstEmail {Body = "Witaj serdecznie, <br> Zapisałeś się do newslettera firmy CafePiano - będziemy Cię informować na temat aktualnych promocji", Signature = "Z poważaniem, <br>Michał Dwojak <br>Właściciel Cafe Piano <br>Pogoria III 3A Regon: 000000000", Title = "Cafe Piano - pozytywne zapisanie do newslettera promocji"},
             };
             FirstEmailConfigure.ForEach(g => context.NewsletterFirstEmail.Add(g));
             context.SaveChanges();
