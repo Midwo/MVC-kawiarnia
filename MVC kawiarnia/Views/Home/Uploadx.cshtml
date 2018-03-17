@@ -19,9 +19,11 @@
     <div class="form-group">
         <input type="file" id="files" name="files" onchange="loadFile(event)" multiple />
     </div>
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
     <div class="form-group">
         <input type="submit" name="upload" value="Upload" />
     </div>
+
     <div class="form-group">
         <div id="selectedFiles"></div>
 
@@ -29,42 +31,41 @@
     </div>
 }
 
-    
-    <script>
+
+<script>
     var selDiv = "";
     var storedFiles = [];
-    
-    $(document).ready(function() {
+
+    $(document).ready(function () {
         $("#files").on("change", handleFileSelect);
-        
-        selDiv = $("#selectedFiles"); 
+
+        selDiv = $("#selectedFiles");
         $("#myForm").on("submit", handleForm);
-        
+
     });
-        
-        function handleFileSelect(e) {
+
+    function handleFileSelect(e) {
 
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
         with (document.getElementById('selectedFiles')) while (hasChildNodes()) removeChild(firstChild)
-        filesArr.forEach(function(f) {          
-          
-            if(!f.type.match("image.*")) {
+        filesArr.forEach(function (f) {
+
+            if (!f.type.match("image.*")) {
                 return;
             }
             storedFiles.push(f);
-            
+
             var reader = new FileReader();
             reader.onload = function (e) {
-                var html = "<div><img src=\"" + e.target.result + "\" data-file='"+f.name+"'title='Dodane zdjęcie'>" + f.name + "<br clear=\"left\"/></div>";
+                var html = "<div><img src=\"" + e.target.result + "\" data-file='" + f.name + "'title='Dodane zdjęcie'>" + f.name + "<br clear=\"left\"/></div>";
                 selDiv.append(html);
-                
+
             }
-            reader.readAsDataURL(f); 
+            reader.readAsDataURL(f);
         });
-        
+
     }
-    </script>
-    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
+</script>
 
 

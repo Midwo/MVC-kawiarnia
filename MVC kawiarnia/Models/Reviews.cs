@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MVC_kawiarnia.Models
 {
@@ -15,6 +16,7 @@ namespace MVC_kawiarnia.Models
         [Required(ErrorMessage = "Musisz wprowadzić swóje imie/pseudonim")]
         public string Name { get; set; }
 
+        [AllowHtml]
         [Display(Name = "Opinia")]
         [Required(ErrorMessage = "Musisz wprowadzić treść opini")]
         public string ReviewText { get; set; }

@@ -28,33 +28,68 @@
 
 
 
-<div class="row centered">
+<div class="row centered1">
+    <h2 class="text-center"><b>U nas zawsze możesz liczyć</b> na poniższe usługi:</h2>
 
-    <div class="col-sm-4 col-md-4">
-        <h2>Kawa 1</h2>
-        <img src="~/Content/Image/latte-spider-web.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
 
-    </div>
-    <div class="col-sm-4 col-md-4">
-        <h2>Kawa 2</h2>
-        <img src="~/Content/Image/1-1267462282CoNq.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <figure class="snip0057 red">
+        <figcaption>
+            <h2><span>Wyśmienite:</span> kawy, herbaty oraz ciasta</h2>
+            <p>Kawy: Latte, Espresso, Cafe Restreto, Mocha, Cortado, Lungo, Breve oraz Cappucino. 
+                <br />Herbaty: Czarna, Zielona, Biała, Żółta, Ulung oraz Pu-Erh.
+            <br/>Ciasta: Sernik, Babka, Makowiec</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Zobacz menu &raquo;</a></p>
 
-    </div>
-    <div class="col-sm-4 col-md-4">
-        <h2>Kawa 3</h2>
-        <img src="~/Content/Image/coffee-latte-11284391087Ksg2.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+            @*<p>A voice crackles in Calvin's radio: "Enemy fighters at two o'clock!" "Roger. What should I do until then?"</p>*@
+        </figcaption>
+        <div class="image"><img src="~/Content/Image/coffee-break-1454539196eJw.jpg" alt="sample4" /></div>
+        <div class="position">Napoje oraz jedzenie</div>
+    </figure>
+
+    <figure class="snip0057 blue">
+        <figcaption>
+            <h2>Muzyka z <span>fortepianu</span> na żywo</h2>
+            <p>Poniedziałek - Wtorek: wariacje D-DUR <br /> Środa - Czwartek: Paganini <br />Piątek: Improvvisazione e Toccata <br /> Sobota - Niedziela: Interludes Romantiques</p>
+            @*<p>A voice crackles in Calvin's radio: "Enemy fighters at two o'clock!" "Roger. What should I do until then?"</p>*@
+        </figcaption>
+        <div class="image"><img src="~/Content/Image/piano.jpg" alt="sample4" /></div>
+        <div class="position">Muzyka</div>
+    </figure>
+
+
 </div>
 
 
 
 
+@*<div class="row centered1">
+
+        <div class="col-sm-4 col-md-4">
+            <h2>Kawa 1</h2>
+            <img src="~/Content/Image/latte-spider-web.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <h2>Kawa 2</h2>
+            <img src="~/Content/Image/1-1267462282CoNq.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <h2>Kawa 3</h2>
+            <img src="~/Content/Image/coffee-latte-11284391087Ksg2.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+
+
+
+<h2 class="text-center">Zapoznaj się z opiniami o naszej firmie:</h2>
 
 @foreach (var item in Model.ListInfPromoFirstPage.Take(1))
 {
@@ -87,9 +122,8 @@
 
 
 
-<p>
-    @Html.ActionLink("Dodaj swoją opinię!", "Create", "Home")
-</p>
+
+
 
 @foreach (var item in Model.ListReviews.Take(5))
 {
@@ -106,7 +140,7 @@
         </p>
         <div>
 
-            <p> @Html.DisplayNameFor(model => model.Reviews.ReviewText):  @Html.DisplayFor(modelItem => item.ReviewText)</p>
+            @Html.Raw(item.ReviewText)
 
         </div>
     </div>
@@ -114,8 +148,15 @@
 
 }
 
+<h4 class="text-left">
+    @Html.ActionLink("Dodaj i swoją opinię!", "Create", "Home")
+</h4>
+
+
+<h2 class="text-center">Już dziś możesz się zapisać do informatora:</h2>
 
 <div id="newsletter-container">
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
@@ -138,6 +179,7 @@
 </div>
 
 
+
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
@@ -145,5 +187,5 @@
         });
     </script>
 
-    
+
 }

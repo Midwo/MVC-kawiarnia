@@ -91,6 +91,7 @@ namespace MVC_kawiarnia.Controllers
         [HttpPost]
         public ActionResult Uploadx(ImageFile objImage)
         {
+        
             foreach (var item in objImage.Files)
             {
                 if (item != null && item.ContentLength > 0)
@@ -110,6 +111,7 @@ namespace MVC_kawiarnia.Controllers
         public class ImageFile
         {
             public List<HttpPostedFileBase> Files { get; set; }
+            public string Name { get; set; }
         }
 
         public ActionResult LeaveNewsletter(string email, string guid)
@@ -201,7 +203,7 @@ namespace MVC_kawiarnia.Controllers
             ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId");
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ReviewsId,Name,ReviewText,RatingMealsId,RatingEmployeesId,RatingPlaceId,RatingSummaryId")] Reviews reviews)
