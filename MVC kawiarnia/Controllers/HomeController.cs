@@ -38,6 +38,12 @@ namespace MVC_kawiarnia.Controllers
     
         }
 
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddNewsletter([Bind(Include = "NewsletterListEmailId,Email")] NewsletterListEmail newsletterListEmail)
@@ -108,6 +114,8 @@ namespace MVC_kawiarnia.Controllers
 
             return View();
         }
+
+
         public class ImageFile
         {
             public List<HttpPostedFileBase> Files { get; set; }

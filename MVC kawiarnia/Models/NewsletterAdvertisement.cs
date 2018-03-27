@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace MVC_kawiarnia.Models
 {
-    public class NewsletterFirstEmail
+    public class NewsletterAdvertisement
     {
-        public int NewsletterFirstEmailId { get; set; }
+        public int NewsletterAdvertisementId { get; set; }
 
         [Display(Name = "Tytuł tytuł")]
         [Required(ErrorMessage = "Musisz wprowadzić tytuł")]
@@ -24,5 +24,8 @@ namespace MVC_kawiarnia.Models
         [Display(Name = "Podpis")]
         [Required(ErrorMessage = "Musisz wprowadzić podpis")]
         public string Signature { get; set; }
+
+        [Display(Name = "Data wysłania")]
+        public DateTime Date { get; set; }
     }
 }

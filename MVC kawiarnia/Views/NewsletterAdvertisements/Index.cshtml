@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC_kawiarnia.Models.NewsletterFirstEmail>
+﻿@model IEnumerable<MVC_kawiarnia.Models.NewsletterAdvertisement>
 
 @{
     ViewBag.Title = "Index";
@@ -21,10 +21,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Signature)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.OrderByDescending(item=>item.NewsletterAdvertisementId)) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
@@ -36,9 +39,12 @@
             @Html.Raw(item.Signature)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsletterFirstEmailId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsletterFirstEmailId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsletterFirstEmailId })
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.NewsletterAdvertisementId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.NewsletterAdvertisementId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NewsletterAdvertisementId })
         </td>
     </tr>
 }

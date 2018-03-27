@@ -29,6 +29,7 @@ namespace MVC_kawiarnia
             Database.SetInitializer<SendEmailAccountContext>(new SendEmailAccountInictializer());
             Database.SetInitializer<InfPromoFirstPageContext>(new InfPromoFirstPageInictializer());
             Database.SetInitializer<NewsletterFirstEmailContext>(new NewsletterFirstEmailInictializer());
+            Database.SetInitializer<NewsletterAdvertisementContext>(new NewsletterAdvertisementInictializer());
         }
     }
 }

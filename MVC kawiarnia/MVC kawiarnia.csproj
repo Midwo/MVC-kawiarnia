@@ -205,6 +205,7 @@
     <Compile Include="Controllers\InfPromoFirstPagesController.cs" />
     <Compile Include="Controllers\JumbotronTextsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsletterAdvertisementsController.cs" />
     <Compile Include="Controllers\NewsletterFirstEmailsController.cs" />
     <Compile Include="Controllers\NewsletterListEmailsController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
@@ -218,6 +219,8 @@
     <Compile Include="DAL\InfPromoFirstPageInictializer.cs" />
     <Compile Include="DAL\JumbotronContext.cs" />
     <Compile Include="DAL\JumbotronInictializer.cs" />
+    <Compile Include="DAL\NewsletterAdvertisementContext.cs" />
+    <Compile Include="DAL\NewsletterAdvertisementInictializer.cs" />
     <Compile Include="DAL\NewsletterFirstEmailContext.cs" />
     <Compile Include="DAL\NewsletterFirstEmailInictializer.cs" />
     <Compile Include="DAL\NewsletterListEmailContext.cs" />
@@ -240,6 +243,7 @@
     <Compile Include="Models\JumbotronText.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsletterAdvertisement.cs" />
     <Compile Include="Models\NewsletterFirstEmail.cs" />
     <Compile Include="Models\NewsletterListEmail.cs" />
     <Compile Include="Models\Rating.cs" />
@@ -266,6 +270,7 @@
     <Content Include="Content\Image\Icon\icons8-friday-100.png" />
     <Content Include="Content\Image\Icon\icons8-good-quality-100.png" />
     <Content Include="Content\Image\Icon\icons8-list-100%281%29.png" />
+    <Content Include="Content\Image\Icon\icons8-map-marker-100.png" />
     <Content Include="Content\Image\Icon\icons8-menu-100.png" />
     <Content Include="Content\Image\Icon\icons8-monday-100.png" />
     <Content Include="Content\Image\Icon\icons8-new-100.png" />
@@ -577,6 +582,12 @@
     <Content Include="Views\SendEmailAccounts\Edit.cshtml" />
     <Content Include="Views\SendEmailAccounts\Index.cshtml" />
     <Content Include="Views\Home\Uploadx.cshtml" />
+    <Content Include="Views\NewsletterAdvertisements\Create.cshtml" />
+    <Content Include="Views\NewsletterAdvertisements\Delete.cshtml" />
+    <Content Include="Views\NewsletterAdvertisements\Details.cshtml" />
+    <Content Include="Views\NewsletterAdvertisements\Edit.cshtml" />
+    <Content Include="Views\NewsletterAdvertisements\Index.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

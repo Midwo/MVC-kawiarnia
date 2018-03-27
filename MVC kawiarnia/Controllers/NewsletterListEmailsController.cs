@@ -63,6 +63,7 @@ namespace MVC_kawiarnia.Controllers
         }
 
         // GET: NewsletterListEmails/Edit/5
+
         public ActionResult Edit(int? id)
         {
             if (id == null)

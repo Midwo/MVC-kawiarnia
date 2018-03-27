@@ -1,4 +1,4 @@
-﻿@model MVC_kawiarnia.Models.NewsletterFirstEmail
+﻿@model MVC_kawiarnia.Models.NewsletterAdvertisement
 
 @{
     ViewBag.Title = "Details";
@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>NewsletterFirstEmail</h4>
+    <h4>NewsletterAdvertisement</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.Raw(Model.Body)
+            @Html.DisplayFor(model => model.Body)
         </dd>
 
         <dt>
@@ -32,12 +32,17 @@
         </dt>
 
         <dd>
-            @Html.Raw(Model.Signature)
+            @Html.DisplayFor(model => model.Signature)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterFirstEmailId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterAdvertisementId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
