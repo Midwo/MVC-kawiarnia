@@ -1,0 +1,135 @@
+﻿@model MVC_kawiarnia.Models.Coupons
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+@section scripts {
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#Date").datepicker({
+                altField: "#Date",
+                altFormat: "d MM, yy",
+                dayNamesMin: ['NIE', 'PON', 'WTO', 'ŚRO', 'CZW', 'PTI', 'SOB'],
+                monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Siepierń", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+            });
+        });
+    </script>
+}
+
+@using (Html.BeginForm("Edit", "Coupons", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Coupons</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CouponsId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.CompanyName, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Title, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="newFiles" name="newFiles" onchange="loadFile(event)" multiple />
+                @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="selectedFiles">
+
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnderTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.UnderTitle, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.UnderTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script>
+    var selDiv = "";
+    var storedFiles = [];
+
+    $(document).ready(function () {
+        $("#newFiles").on("change", handleFileSelect);
+
+        selDiv = $("#selectedFiles");
+        $("#myForm").on("submit", handleForm);
+
+    });
+
+    function handleFileSelect(e) {
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        with (document.getElementById('selectedFiles')) while (hasChildNodes()) removeChild(firstChild)
+        filesArr.forEach(function (f) {
+
+            if (!f.type.match("image.*")) {
+                return;
+            }
+            storedFiles.push(f);
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var html = "<label class= \"control-label col-md-2\" for=\"Files\">Dodane zdjęcie</label><div class=\"col-md-10 img_small\"><img src=\"" + e.target.result + "\" data-file='" + f.name + "'title='Nowe zdjęcie'>" + f.name + "<br clear=\"left\"/></div>";
+                selDiv.append(html);
+            }
+
+            reader.readAsDataURL(f);
+        });
+
+    }
+</script>

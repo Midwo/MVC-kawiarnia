@@ -22,6 +22,12 @@ namespace MVC_kawiarnia.Controllers
         private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
         private InfPromoFirstPageContext DbInfPromoFirstPage = new InfPromoFirstPageContext();
         private NewsletterFirstEmailContext DbNewsletterFirstEmail = new NewsletterFirstEmailContext();
+        private InfoFirstPageContext DbInfoFirstPage = new InfoFirstPageContext();
+        private AboutPageContext DbAboutPage = new AboutPageContext();
+        private CouponsContext DbCoupons = new CouponsContext();
+        private EventContext DbEvents = new EventContext();
+        // GET: Events
+   
 
         public ActionResult Index()
         {
@@ -34,6 +40,7 @@ namespace MVC_kawiarnia.Controllers
             db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
             db2.ListNewsletterListEmail = DbNewsletterListEmail.NewsletterListEmail.ToList();
             db2.ListInfPromoFirstPage = DbInfPromoFirstPage.InfPromoFirstPage.ToList();
+            db2.ListInfoFirstPage = DbInfoFirstPage.InfoFirstPage.ToList();
             return View(db2);
     
         }
@@ -115,7 +122,11 @@ namespace MVC_kawiarnia.Controllers
             return View();
         }
 
+        public ActionResult Event()
+        {
 
+            return View(DbEvents.Events.ToList());
+        }
         public class ImageFile
         {
             public List<HttpPostedFileBase> Files { get; set; }
@@ -159,9 +170,7 @@ namespace MVC_kawiarnia.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View(DbAboutPage.AboutPage.ToList());
         }
 
         public ActionResult Contact()
@@ -184,9 +193,7 @@ namespace MVC_kawiarnia.Controllers
 
         public ActionResult Coupons()
         {
-            ViewBag.Message = "Your coupons page.";
-
-            return View();
+            return View(DbCoupons.Coupons.ToList());
         }
 
         [Authorize(Roles = "AppAdmin")]

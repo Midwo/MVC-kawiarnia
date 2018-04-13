@@ -1,0 +1,159 @@
+﻿@model IEnumerable<MVC_kawiarnia.Models.Event>
+
+@{
+    ViewBag.Title = "Event";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron hmm">
+    <h1>
+        Wydarzenia
+    </h1>
+    <p class="lead">
+     Zobacz co organizujemy i co już zrobiliśmy!
+
+    </p>
+    <p><a  href="@Url.Action("Coupons","Home")" class="btn btn-primary btn-lg">Zobacz również promocje &raquo;</a></p>
+
+</div>
+ 
+
+  
+        <div class="well well-sm text-center">
+            <h3><strong>Organizujemy świetne wydarzenia(eventy) w których:</strong></h3>
+
+
+            <div class="chip">
+                <i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Z pewnością poznasz nowe osoby
+            </div>
+            <div class="chip">
+                <i class="fa fa-handshake-o  fa-2x" aria-hidden="true"></i>Zrobisz interes życia
+            </div>
+            <div class="chip">
+                <i class="fa fa-battery-full fa-2x" aria-hidden="true"></i>Podładujesz się energią
+            </div>
+
+            <div class="chip">
+                <i class="fa fa-heart fa-2x" aria-hidden="true"></i>Spędzisz romantyczne chwile
+            </div>
+
+            <br />
+
+
+            <div class="chip">
+                <i class="fa fa-music fa-2x" aria-hidden="true"></i>Posłuchasz muzyki granej na żywo
+            </div>
+            <div class="chip">
+                <i class="fa fa-cc-visa fa-2x" aria-hidden="true"></i>I nie wydasz fortuny
+            </div>
+
+        </div>
+
+        
+  
+
+
+
+
+
+<div class="row centered1">
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <h2 class="text-center"><b>Za nami </b>eventy:</h2>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="[ col-xs-12 ]">
+                        <ul class="event-list">
+
+                            @{
+                                foreach (var item in Model.OrderByDescending(p => p.DateSort).Where(p => p.DateSort < DateTime.Now).Take(8))
+                                {
+                            <li>
+                                <time1 datetime="@item.DateSort">
+                                    @{
+                                        String[] substrings = item.DateInPage.Split(' ');
+                            <span class="day">@substrings[0]</span>
+                            <span class="month">@substrings[1]</span>
+                            <span class="year">@substrings[2]</span>
+                                    }
+                                </time1>
+                                @{
+                                    if (item.Files.Length > 1)
+                                    {
+                            <img class="img-event-list" alt="Independence Day" src="@item.Files" />
+                                        }
+                                    }
+                            <div class="info">
+                                <h2 class="title">@Html.Raw(item.Title.Substring(3, item.Title.Length - 7))</h2>
+                                <p class="desc">@Html.Raw(item.ContentString.Substring(3, item.ContentString.Length - 7))</p>
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <li class="facebook" style="width:33%;"><a href="@item.UrlFb"><span class="fa fa-facebook"></span></a></li>
+                                    @*<li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                                     <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>*@
+                                </ul>
+                            </div>
+                            </li>
+                                        }
+                                    }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-lg-6">
+
+            <h2 class="text-center"><b>Eventy</b> przed Wami:</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="[ col-xs-12 ]">
+                        <ul class="event-list">
+                            @{
+                                foreach (var item in Model.OrderBy(p => p.DateSort).Where(p => p.DateSort >= DateTime.Now).Take(8))
+                                {
+                            <li>
+                                <time datetime="@item.DateSort">
+                                    @{
+                                        String[] substrings = item.DateInPage.Split(' ');
+                            <span class="day">@substrings[0]</span>
+                            <span class="month">@substrings[1]</span>
+                            <span class="year">@substrings[2]</span>
+                                    }
+                                </time>
+                                @{
+                                    if (item.Files.Length > 1)
+                                    {
+                            <img alt="Independence Day" src="@item.Files"/>
+                                        }
+                                    }
+                            <div class="info">
+                                <h2 class="title">@Html.Raw(item.Title.Substring(3, item.Title.Length - 7))</h2>
+                                <p class="desc">@Html.Raw(item.ContentString.Substring(3, item.ContentString.Length - 7))</p>
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <li class="facebook" style="width:33%;"><a href="@item.UrlFb"><span class="fa fa-facebook"></span></a></li>
+                                    @*<li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+            <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>*@
+                                </ul>
+                            </div>
+                            </li>
+                            }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

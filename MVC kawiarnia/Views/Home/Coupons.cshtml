@@ -1,140 +1,35 @@
-﻿
+﻿@model IEnumerable<MVC_kawiarnia.Models.Coupons>
+
 @{
     ViewBag.Title = "Coupons";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row centered1">
+    <h2 class="text-center"><b>Aktualne</b> kupony i promocje:</h2>
 
-<h2>Kupony</h2>
+    <div class="row coupons">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3 col-md-3 centered fixcoupon">
+
+                <div class="coupon col-sm-4 col-md-4">
+                    <div class="container coupons">
+                        <h3>@Html.Raw(item.CompanyName)</h3>
+                    </div>
+                    <img src="@Html.DisplayFor(modelItem => item.Files)" alt="Avatar" style="width:100%;">
+                    <div class="container" style="background-color:white">
+                        <h2>@Html.Raw(item.Title)</h2>
+                        @Html.Raw(item.UnderTitle)
+                    </div>
+                    <div class="container coupons">
+                        <p>Użyj kodu: <span class="promo"> @Html.DisplayFor(modelItem => item.Code)</span></p>
+                        <p class="expire">Wygasa:   @Html.DisplayFor(modelItem => item.Date)</p>
+                    </div>
+
+                </div>
 
 
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    Promocja na Kawy tylko dziś!!!
-</div>
-
-<div class="alert success">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    Promocja na Kawy tylko dziś!!!
-</div>
-
-<div class="alert warning">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    Promocja na Kawy tylko dziś!!!
-</div>
-
-<div class="alert info">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    Promocja na Kawy tylko dziś!!!
-</div>
-
-<div class="row coupons">
-
-    <div class="col-sm-3 col-md-3 centered fixcoupon">
-
-        <div class="coupon col-sm-4 col-md-4">
-            <div class="container coupons">
-                <h3>Cafe Piano</h3>
             </div>
-            <img src="~/Content/Image/latte-spider-web.jpg" alt="Avatar" style="width:100%;">
-            <div class="container" style="background-color:white">
-                <h2><b>50% Taniej każda kawa</b></h2>
-                <p>Wszystkie kawy z głównego menu objęte są promocją 50% taniej, bez limitu zamówień na każdego człeka. Bier pij i giń na zawał.</p>
-            </div>
-            <div class="container coupons">
-                <p>Użyj kodu: <span class="promo">BOH232</span></p>
-                <p class="expire">Wygasa: Styczeń 20, 2018</p>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="col-sm-3 col-md-3 centered fixcoupon">
-
-        <div class="coupon col-sm-4 col-md-4">
-            <div class="container coupons">
-                <h3>Cafe Piano</h3>
-            </div>
-            <img src="~/Content/Image/1-1267462282CoNq.jpg" alt="Avatar" style="width:100%;">
-            <div class="container" style="background-color:white">
-                <h2><b>70% Taniej mała czarna</b></h2>
-                <p>Wszystkie kawy bezmleczne z głównego menu objęte są promocją 70% taniej, z limitem zamówień: jedna na mordę. Bier pij i giń na zawał.</p>
-            </div>
-            <div class="container coupons">
-                <p>Użyj kodu: <span class="promo">BOH666</span></p>
-                <p class="expire">Wygasa: Styczeń 20, 2018</p>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="col-sm-3 col-md-3 centered fixcoupon">
-
-        <div class="coupon col-sm-4 col-md-4">
-            <div class="container coupons">
-                <h3>Cafe Piano</h3>
-            </div>
-            <img src="~/Content/Image/latte-spider-web.jpg" alt="Avatar" style="width:100%;">
-            <div class="container" style="background-color:white">
-                <h2><b>50% Taniej każda kawa</b></h2>
-                <p>Wszystkie kawy z głównego menu objęte są promocją 50% taniej, bez limitu zamówień na każdego człeka. Bier pij i giń na zawał.</p>
-            </div>
-            <div class="container coupons">
-                <p>Użyj kodu: <span class="promo">BOH232</span></p>
-                <p class="expire">Wygasa: Styczeń 20, 2018</p>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="col-sm-3 col-md-3 centered fixcoupon">
-
-        <div class="coupon col-sm-4 col-md-4">
-            <div class="container coupons">
-                <h3>Cafe Piano</h3>
-            </div>
-            <img src="~/Content/Image/1-1267462282CoNq.jpg" alt="Avatar" style="width:100%;">
-            <div class="container" style="background-color:white">
-                <h2><b>70% Taniej mała czarna</b></h2>
-                <p>Wszystkie kawy bezmleczne z głównego menu objęte są promocją 70% taniej, z limitem zamówień: jedna na mordę. Bier pij i giń na zawał.</p>
-            </div>
-            <div class="container coupons">
-                <p>Użyj kodu: <span class="promo">BOH666</span></p>
-                <p class="expire">Wygasa: Styczeń 20, 2018</p>
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-
-
-
-<script>
-    // Get all elements with class="closebtn"
-    var close = document.getElementsByClassName("closebtn");
-    var i;
-
-    // Loop through all close buttons
-    for (i = 0; i < close.length; i++) {
-        // When someone clicks on a close button
-        close[i].onclick = function () {
-
-            // Get the parent of <span class="closebtn"> (<div class="alert">)
-            var div = this.parentElement;
-
-            // Set the opacity of div to 0 (transparent)
-            div.style.opacity = "0";
-
-            // Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
-            setTimeout(function () { div.style.display = "none"; }, 600);
         }
-    }
-</script>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model MVC_kawiarnia.Models.Coupons
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Coupons</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.Raw( Model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Files)
+        </dt>
+
+        <dd>
+            <div class="img_small">  <img src="@Html.DisplayFor(modelItem => Model.Files)" alt="Tu powinien być obrazek" /> </div>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnderTitle)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.UnderTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CouponsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

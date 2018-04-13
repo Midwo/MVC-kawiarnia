@@ -1,0 +1,67 @@
+﻿@model MVC_kawiarnia.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentString)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.ContentString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Files)
+        </dt>
+
+        <dd>
+            <div class="img_small">  <img src="@Html.DisplayFor(modelItem => Model.Files)" alt="Tu powinien być obrazek" /> </div>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlFb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrlFb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSort)
+        </dt>
+
+        <dd>
+            @Html.ValueFor(model => model.DateSort, "{0:dd/MM/yyyy}")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInPage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInPage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

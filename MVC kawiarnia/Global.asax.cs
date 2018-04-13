@@ -30,6 +30,11 @@ namespace MVC_kawiarnia
             Database.SetInitializer<InfPromoFirstPageContext>(new InfPromoFirstPageInictializer());
             Database.SetInitializer<NewsletterFirstEmailContext>(new NewsletterFirstEmailInictializer());
             Database.SetInitializer<NewsletterAdvertisementContext>(new NewsletterAdvertisementInictializer());
+            Database.SetInitializer<InfoFirstPageContext>(new InfoFirstPageInictializer());
+            Database.SetInitializer<AboutPageContext>(new AboutPageInictializer());
+            Database.SetInitializer<CouponsContext>(new CouponsInictializer());
+            Database.SetInitializer<EventContext>(new EventInictializer());
+
         }
     }
 }

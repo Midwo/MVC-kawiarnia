@@ -1,0 +1,112 @@
+﻿@model MVC_kawiarnia.Models.InfoFirstPage
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>
+    Formularz edycji
+</h3>
+
+@using (Html.BeginForm("Edit", "InfoFirstPages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h5>Witaj, w tym miejscu możesz edytować menu dla pierwszej strony. Elementy te mówią o menu Twojej kawiarni oraz rzeczach które mniej więcej oferujesz</h5>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.InfoFirstPageId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Title, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnderString, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.UnderString, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.UnderString, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="newFiles" name="newFiles" onchange="loadFile(event)" multiple />
+                @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="selectedFiles">
+          
+          
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnderTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.UnderTitle, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.UnderTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div id="selectedFiles"></div>
+
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script>
+    var selDiv = "";
+    var storedFiles = [];
+
+    $(document).ready(function () {
+        $("#newFiles").on("change", handleFileSelect);
+
+        selDiv = $("#selectedFiles");
+        $("#myForm").on("submit", handleForm);
+        
+    });
+
+    function handleFileSelect(e) {
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        with (document.getElementById('selectedFiles')) while (hasChildNodes()) removeChild(firstChild)
+        filesArr.forEach(function (f) {
+
+            if (!f.type.match("image.*")) {
+                return;
+            }
+            storedFiles.push(f);
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var html = "<label class= \"control-label col-md-2\" for=\"Files\">Dodane zdjęcie</label><div class=\"col-md-10 img_small\"><img src=\"" + e.target.result + "\" data-file='" + f.name + "'title='Nowe zdjęcie'>" + f.name + "<br clear=\"left\"/></div>";
+                selDiv.append(html);
+            }
+               
+            reader.readAsDataURL(f);
+        });
+        
+    }
+</script>

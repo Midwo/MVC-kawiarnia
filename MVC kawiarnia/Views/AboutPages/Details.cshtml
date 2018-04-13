@@ -1,0 +1,51 @@
+﻿@model MVC_kawiarnia.Models.AboutPage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AboutPage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnderTitle)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.UnderTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerInfo)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.OwnerInfo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AboutPageId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

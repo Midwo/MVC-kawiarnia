@@ -198,10 +198,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AboutPagesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactMessagesController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\CouponsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoFirstPagesController.cs" />
     <Compile Include="Controllers\InfPromoFirstPagesController.cs" />
     <Compile Include="Controllers\JumbotronTextsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -211,10 +215,18 @@
     <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\SendEmailAccountsController.cs" />
     <Compile Include="Controllers\WorkersListsController.cs" />
+    <Compile Include="DAL\AboutPageContext.cs" />
+    <Compile Include="DAL\AboutPageInictializer.cs" />
     <Compile Include="DAL\ApplicationAccountInictializer.cs" />
     <Compile Include="DAL\ContactContext.cs" />
     <Compile Include="DAL\ContactInictilizer.cs" />
     <Compile Include="DAL\ContactMessageContext.cs" />
+    <Compile Include="DAL\CouponsContext.cs" />
+    <Compile Include="DAL\CouponsInictializer.cs" />
+    <Compile Include="DAL\EventContext.cs" />
+    <Compile Include="DAL\EventInictializer.cs" />
+    <Compile Include="DAL\InfoFirstPageContext.cs" />
+    <Compile Include="DAL\InfoFirstPageInictializer.cs" />
     <Compile Include="DAL\InfPromoFirstPageContext.cs" />
     <Compile Include="DAL\InfPromoFirstPageInictializer.cs" />
     <Compile Include="DAL\JumbotronContext.cs" />
@@ -233,11 +245,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutPage.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\ContactMix.cs" />
+    <Compile Include="Models\Coupons.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfoFirstPage.cs" />
     <Compile Include="Models\InfPromoChoosePicture.cs" />
     <Compile Include="Models\InfPromoFirstPage.cs" />
     <Compile Include="Models\JumbotronText.cs" />
@@ -257,11 +273,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Image\1-1267462282CoNq.jpg" />
+    <Content Include="Content\Image\appetizer-asian-food-bowl-772518.jpg" />
     <Content Include="Content\Image\black-coffee-cup.jpg" />
+    <Content Include="Content\Image\blacktea123.png" />
+    <Content Include="Content\Image\cafe-cake-cream-9820.jpg" />
+    <Content Include="Content\Image\caffelatte123.png" />
     <Content Include="Content\Image\coffee-break-1454539196eJw.jpg" />
     <Content Include="Content\Image\coffee-latte-11284391087Ksg2.jpg" />
     <Content Include="Content\Image\favicon.ico" />
+    <Content Include="Content\Image\FirstPage\1.jpg" />
+    <Content Include="Content\Image\FirstPage\2.jpg" />
     <Content Include="Content\Image\Icon\icons8-account-100.png" />
+    <Content Include="Content\Image\Icon\icons8-calendar-100.png" />
     <Content Include="Content\Image\Icon\icons8-cell-phone-100.png" />
     <Content Include="Content\Image\Icon\icons8-checklist-100.png" />
     <Content Include="Content\Image\Icon\icons8-coupon-100.png" />
@@ -286,12 +309,15 @@
     <Content Include="Content\Image\Icon\icons8-urgent-message-100.png" />
     <Content Include="Content\Image\Icon\icons8-wednesday-100.png" />
     <Content Include="Content\Image\latte-spider-web.jpg" />
+    <Content Include="Content\Image\people-eiffel-tower-lights-night.jpg" />
     <Content Include="Content\Image\piano.jpg" />
     <Content Include="Content\Image\pumpkin-on-the-jute-background-1475658606l4v — kopia %283%29 — kopia — kopia.jpg" />
     <Content Include="Content\Image\pumpkin-on-the-jute-background-1475658606l4v — kopia %283%29.jpg" />
     <Content Include="Content\Image\pumpkin-on-the-jute-background-1475658606l4v — kopia.jpg" />
     <Content Include="Content\Image\pumpkin-on-the-jute-background-1475658606l4v.jpg" />
     <Content Include="Content\Image\pumpkin-on-the-jute-background-1475658606l4v1.jpg" />
+    <Content Include="Content\Image\schnitzel-645457_640.jpg" />
+    <Content Include="Content\Image\tatar.png" />
     <Content Include="Content\Image\treeandtea.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -588,9 +614,29 @@
     <Content Include="Views\NewsletterAdvertisements\Edit.cshtml" />
     <Content Include="Views\NewsletterAdvertisements\Index.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\InfoFirstPages\Edit.cshtml" />
+    <Content Include="Views\InfoFirstPages\Index.cshtml" />
+    <Content Include="Views\AboutPages\Create.cshtml" />
+    <Content Include="Views\AboutPages\Delete.cshtml" />
+    <Content Include="Views\AboutPages\Details.cshtml" />
+    <Content Include="Views\AboutPages\Edit.cshtml" />
+    <Content Include="Views\AboutPages\Index.cshtml" />
+    <Content Include="Views\Coupons\Create.cshtml" />
+    <Content Include="Views\Coupons\Delete.cshtml" />
+    <Content Include="Views\Coupons\Details.cshtml" />
+    <Content Include="Views\Coupons\Edit.cshtml" />
+    <Content Include="Views\Coupons\Index.cshtml" />
+    <Content Include="Views\Home\Event.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Image\Coupons\" />
+    <Folder Include="Content\Image\Events\" />
     <Folder Include="Content\Upload\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>

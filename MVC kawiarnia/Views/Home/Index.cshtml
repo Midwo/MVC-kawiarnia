@@ -27,34 +27,60 @@
 
 
 
-
 <div class="row centered1">
     <h2 class="text-center"><b>U nas zawsze możesz liczyć</b> na poniższe usługi:</h2>
 
+    @{
+        int x = 0;
 
-    <figure class="snip0057 red">
-        <figcaption>
-            <h2><span>Wyśmienite:</span> kawy, herbaty oraz ciasta</h2>
-            <p>Kawy: Latte, Espresso, Cafe Restreto, Mocha, Cortado, Lungo, Breve oraz Cappucino. 
-                <br />Herbaty: Czarna, Zielona, Biała, Żółta, Ulung oraz Pu-Erh.
-            <br/>Ciasta: Sernik, Babka, Makowiec</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Zobacz menu &raquo;</a></p>
+        foreach (var item in Model.ListInfoFirstPage.Take(2))
+        {
 
-            @*<p>A voice crackles in Calvin's radio: "Enemy fighters at two o'clock!" "Roger. What should I do until then?"</p>*@
-        </figcaption>
-        <div class="image"><img src="~/Content/Image/coffee-break-1454539196eJw.jpg" alt="sample4" /></div>
-        <div class="position">Napoje oraz jedzenie</div>
-    </figure>
+            if (x % 2 == 0)
+            {
+                <figure class="snip0057 red">
+                    <figcaption>
+                        <h2>
+                            <font size="5">   @Html.Raw(item.Title) </font>
+                        </h2>
 
-    <figure class="snip0057 blue">
-        <figcaption>
-            <h2>Muzyka z <span>fortepianu</span> na żywo</h2>
-            <p>Poniedziałek - Wtorek: wariacje D-DUR <br /> Środa - Czwartek: Paganini <br />Piątek: Improvvisazione e Toccata <br /> Sobota - Niedziela: Interludes Romantiques</p>
-            @*<p>A voice crackles in Calvin's radio: "Enemy fighters at two o'clock!" "Roger. What should I do until then?"</p>*@
-        </figcaption>
-        <div class="image"><img src="~/Content/Image/piano.jpg" alt="sample4" /></div>
-        <div class="position">Muzyka</div>
-    </figure>
+                        @Html.Raw(item.UnderString)
+
+                        <p><a class="btn btn-default" href="@Url.Action("Menu","Home")">Zobacz menu &raquo;</a></p>
+                    </figcaption>
+                    <div class="image"><img src="@item.Files" alt="sample4" /></div>
+                    <div class="position">
+                        @Html.Raw(item.UnderTitle)
+                    </div>
+                </figure>
+            }
+
+            if (x % 2 == 1)
+            {
+
+                <figure class="snip0057 blue">
+                    <figcaption>
+                        <h2>
+                            <font size="5">   @Html.Raw(item.Title) </font>
+                        </h2>
+
+                        @Html.Raw(item.UnderString)
+
+                    </figcaption>
+                    <div class="image"><img src="@item.Files" alt="sample4" /></div>
+                    <div class="position">
+                        @Html.Raw(item.UnderTitle)
+                    </div>
+                </figure>
+            }
+
+            x++;
+        }
+    }
+
+
+
+
 
 
 </div>
