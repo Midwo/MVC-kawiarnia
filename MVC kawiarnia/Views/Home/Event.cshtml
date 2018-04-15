@@ -68,7 +68,7 @@
                         <ul class="event-list">
 
                             @{
-                                foreach (var item in Model.OrderByDescending(p => p.DateSort).Where(p => p.DateSort < DateTime.Now).Take(8))
+                                foreach (var item in ViewBag.OldEvent)
                                 {
                             <li>
                                 <time1 datetime="@item.DateSort">
@@ -115,7 +115,7 @@
                     <div class="[ col-xs-12 ]">
                         <ul class="event-list">
                             @{
-                                foreach (var item in Model.OrderBy(p => p.DateSort).Where(p => p.DateSort >= DateTime.Now).Take(8))
+                                foreach (var item in ViewBag.ActualEvent)
                                 {
                             <li>
                                 <time datetime="@item.DateSort">

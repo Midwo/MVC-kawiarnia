@@ -27,7 +27,7 @@ namespace MVC_kawiarnia.Controllers
         private CouponsContext DbCoupons = new CouponsContext();
         private EventContext DbEvents = new EventContext();
         // GET: Events
-   
+
 
         public ActionResult Index()
         {
@@ -124,8 +124,9 @@ namespace MVC_kawiarnia.Controllers
 
         public ActionResult Event()
         {
-
-            return View(DbEvents.Events.ToList());
+            ViewBag.OldEvent = DbEvents.Events.OrderByDescending(p => p.DateSort).Where(p => p.DateSort < DateTime.Now).Take(8).ToList();
+            ViewBag.ActualEvent = DbEvents.Events.OrderBy(p => p.DateSort).Where(p => p.DateSort >= DateTime.Now).Take(8).ToList();
+            return View();
         }
         public class ImageFile
         {
