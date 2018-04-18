@@ -34,6 +34,7 @@ namespace MVC_kawiarnia
             Database.SetInitializer<AboutPageContext>(new AboutPageInictializer());
             Database.SetInitializer<CouponsContext>(new CouponsInictializer());
             Database.SetInitializer<EventContext>(new EventInictializer());
+            Database.SetInitializer<ProductContext>(new ProductInictializer());
 
         }
     }

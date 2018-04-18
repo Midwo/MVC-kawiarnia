@@ -36,8 +36,26 @@ textarea {
     color: #ffffff
 }
 
-.hmm {
+.jumbotron-event {
     background: url('Image/people-eiffel-tower-lights-night.jpg') no-repeat center center;
+    /*-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;*/
+    background-size: 100%;
+    color: #ffffff
+}
+
+.jumbotron-dinner {
+    background: url('Image/pexels-photo-326278.jpeg') no-repeat center center;
+    /*-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;*/
+    background-size: 100%;
+    color: #ffffff
+}
+
+.jumbotron-drinks {
+    background: url('Image/pexels-photo-302905.jpeg') no-repeat center center;
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
@@ -175,28 +193,11 @@ button {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container_message {
     border: 2px solid #ccc;
     background-color: #eee;
     border-radius: 5px;
-    padding: 16px;
+    padding: 16px 16px 5px 16px;
     margin: 16px 0;
 }
 
@@ -217,7 +218,7 @@ button {
     /* Increase the font-size of a span element */
     .container_message span {
         font-size: 20px;
-        margin-right: 15px;
+        margin-right: 0px;
     }
 
 /* Add media queries for responsiveness. This will center both the text and the image inside the container */
@@ -239,6 +240,7 @@ button {
 
 .alignright {
     float: right;
+    padding-left: 30px;
 }
 
 .alignleftnext{
@@ -788,7 +790,7 @@ figure.snip0057 {
     border-radius: 6px;
     font-size: 14px;
     z-index: 1;
-    padding-bottom: 0px;
+    padding-bottom: 8px;
 }
 
 @media (min-width: 800px) {
@@ -796,7 +798,7 @@ figure.snip0057 {
         top: 30px;
         left: 50%;
         margin-left: -70px;
-        padding-bottom: 0px;
+        padding-bottom: 8px;
     }
 }
 
@@ -1160,3 +1162,40 @@ figure.snip0057 {
                         padding: 10px 0px 9px;
                     }
 }
+
+
+
+#lightbox .modal-content {
+    display: inline-block;
+    text-align: center;
+}
+
+#lightbox .close {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    background-color: rgb(25, 25, 25);
+    padding: 5px 8px;
+    border-radius: 30px;
+    border: 2px solid rgb(255, 255, 255);
+    position: absolute;
+    /*top: -15px;
+    right: -55px;*/
+    top: -19px;
+    right: -19px;
+    z-index: 1032;
+    width: 35px;
+    height: 35px;
+}
+.modal-body{
+    padding: 0px;
+}
+.modal-dialog{
+    padding: 0px;
+}
+
+/*body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+    margin-right: 0px;
+}*/
+

@@ -18,6 +18,9 @@ namespace MVC_kawiarnia
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/lightbox2").Include(
+                        "~/Scripts/lightbox2/js/lightbox-plus-jquery.min.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -29,9 +32,8 @@ namespace MVC_kawiarnia
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
-
-      
+                      "~/Scripts/lightbox2/css/lightbox.min.css",
+                      "~/Content/site.css"));      
         }
     }
 }

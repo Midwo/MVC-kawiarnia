@@ -40,7 +40,5 @@ namespace MVC_kawiarnia.Models
 
         public virtual RatingPlace RatingPlace { get; set; }
 
-
-
     }
 }

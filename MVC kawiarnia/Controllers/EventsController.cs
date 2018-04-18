@@ -19,7 +19,9 @@ namespace MVC_kawiarnia.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            ViewBag.OldEvent = db.Events.OrderByDescending(p => p.DateSort).Where(p => p.DateSort < DateTime.Now).ToList();
+            ViewBag.ActualEvent = db.Events.OrderBy(p => p.DateSort).Where(p => p.DateSort >= DateTime.Now).ToList();
+            return View();
         }
 
         // GET: Events/Details/5
@@ -151,11 +153,10 @@ namespace MVC_kawiarnia.Controllers
                 @event.Files = NameWrapper;
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
-
+                return RedirectToAction("Index");
             }
 
-
-            return RedirectToAction("Index");
+            return View(@event);
 
 
           

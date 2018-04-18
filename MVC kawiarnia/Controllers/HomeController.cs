@@ -13,10 +13,10 @@ namespace MVC_kawiarnia.Controllers
 {
     public class HomeController : Controller
     {
-        private ReviewContext db = new ReviewContext();
-        private JumbotronContext db1 = new JumbotronContext();
-        private ContactContext db3 = new ContactContext();
-        private ContactMessageContext db4 = new ContactMessageContext();
+        private ReviewContext DbReview = new ReviewContext();
+        private JumbotronContext DbJumbotron = new JumbotronContext();
+        private ContactContext DbContact = new ContactContext();
+        private ContactMessageContext DbContactMessage = new ContactMessageContext();
         private WorkersListContext DbWorkserList = new WorkersListContext();
         private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
         private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
@@ -26,9 +26,8 @@ namespace MVC_kawiarnia.Controllers
         private AboutPageContext DbAboutPage = new AboutPageContext();
         private CouponsContext DbCoupons = new CouponsContext();
         private EventContext DbEvents = new EventContext();
-        // GET: Events
-
-
+        private ProductContext DbProduct = new ProductContext();
+        
         public ActionResult Index()
         {
           MainPageModel db2 = new MainPageModel();
@@ -36,8 +35,8 @@ namespace MVC_kawiarnia.Controllers
             //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6);
             //db1.Jumbotron.ToList();
 
-            db2.ListJumbtronText = db1.Jumbotron.ToList();
-            db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
+            db2.ListJumbtronText = DbJumbotron.Jumbotron.ToList();
+            db2.ListReviews = DbReview.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
             db2.ListNewsletterListEmail = DbNewsletterListEmail.NewsletterListEmail.ToList();
             db2.ListInfPromoFirstPage = DbInfPromoFirstPage.InfPromoFirstPage.ToList();
             db2.ListInfoFirstPage = DbInfoFirstPage.InfoFirstPage.ToList();
@@ -46,8 +45,8 @@ namespace MVC_kawiarnia.Controllers
         }
 
         public ActionResult Menu()
-        {
-            return View();
+        {     
+            return View(DbProduct.Products.ToList());
         }
 
 
@@ -185,8 +184,8 @@ namespace MVC_kawiarnia.Controllers
             //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6);
             //db1.Jumbotron.ToList();
 
-            db2.ListContact = db3.Contact.ToList();
-            db2.ListContactMessage = db4.ContactMessage.ToList();
+            db2.ListContact = DbContact.Contact.ToList();
+            db2.ListContactMessage = DbContactMessage.ContactMessage.ToList();
             return View(db2);
 
 
@@ -206,17 +205,17 @@ namespace MVC_kawiarnia.Controllers
             //db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList().Take(6);
             //db1.Jumbotron.ToList();
 
-            db2.ListJumbtronText = db1.Jumbotron.ToList();
-            db2.ListReviews = db.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
+            db2.ListJumbtronText = DbJumbotron.Jumbotron.ToList();
+            db2.ListReviews = DbReview.Messages.OrderByDescending(m1 => m1.ReviewsId).ToList();
             return View(db2);
         }
 
 
         public ActionResult Create()
         {
-            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId");
-            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId");
-            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId");
+            ViewBag.RatingEmployeesId = new SelectList(DbReview.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId");
+            ViewBag.RatingMealsId = new SelectList(DbReview.RatingMeals, "RatingMealsId", "RatingMealsId");
+            ViewBag.RatingPlaceId = new SelectList(DbReview.RatingPlace, "RatingPlaceId", "RatingPlaceId");
             return View();
         }
         
@@ -226,14 +225,14 @@ namespace MVC_kawiarnia.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Messages.Add(reviews);
-                db.SaveChanges();
+                DbReview.Messages.Add(reviews);
+                DbReview.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RatingEmployeesId = new SelectList(db.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
-            ViewBag.RatingMealsId = new SelectList(db.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
-            ViewBag.RatingPlaceId = new SelectList(db.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
+            ViewBag.RatingEmployeesId = new SelectList(DbReview.RatingEmployees, "RatingEmployeesId", "RatingEmployeesId", reviews.RatingEmployeesId);
+            ViewBag.RatingMealsId = new SelectList(DbReview.RatingMeals, "RatingMealsId", "RatingMealsId", reviews.RatingMealsId);
+            ViewBag.RatingPlaceId = new SelectList(DbReview.RatingPlace, "RatingPlaceId", "RatingPlaceId", reviews.RatingPlaceId);
             return View(reviews);
         }
 
@@ -256,8 +255,8 @@ namespace MVC_kawiarnia.Controllers
                 foreach (var EmailAccount in DbSendEmailAccount.EmailAccount)
                 {
 
-                    db4.ContactMessage.Add(contactMessage);
-                    db4.SaveChanges();
+                    DbContactMessage.ContactMessage.Add(contactMessage);
+                    DbContactMessage.SaveChanges();
 
                    
                     SmtpClient mailServer = new SmtpClient(EmailAccount.Host, EmailAccount.Port);
@@ -289,8 +288,8 @@ namespace MVC_kawiarnia.Controllers
             ContactMix db2 = new ContactMix();
 
 
-            db2.ListContact = db3.Contact.ToList();
-            db2.ListContactMessage = db4.ContactMessage.ToList();
+            db2.ListContact = DbContact.Contact.ToList();
+            db2.ListContactMessage = DbContactMessage.ContactMessage.ToList();
             return View(db2);
         }
 

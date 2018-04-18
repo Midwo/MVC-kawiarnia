@@ -137,7 +137,7 @@
                 </div>
                 <p>
 
-                    <button type="button" onclick="location.href=('@Url.Action("Contact", "Home")')">Zobacz kupony i promocje</button>
+                    <button type="button" onclick="location.href=('@Url.Action("Coupons", "Home")')">Zobacz kupony i promocje</button>
                 </p>
             </div>
         </div>
@@ -153,29 +153,79 @@
 
 @foreach (var item in Model.ListReviews.Take(5))
 {
-    <div class="container_message">
-        <img src="~/Content/Image/coffee-break-1454539196eJw.jpg" alt="Avatar" style="width: 70px; height: 70px;">
-        <p class="alignright">
-            @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId):  <b>@item.RatingEmployees.RatingEmployeesInt</b>,
-            @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId): <b>@item.RatingMeals.RatingPlaceInt</b>,
-            @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId): <b>@item.RatingPlace.RatingPlaceInt</b>
-        </p>
-        <p><span>@Html.DisplayNameFor(model => model.Reviews.Name): @Html.DisplayFor(modelItem => item.Name). </span>           </p>
-        <p class="alignright">
-            <b>  Ocena ogólna : @(((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3).ToString("#.##"))</b>
-        </p>
-        <div>
+        <div class="container_message">
 
-            @Html.Raw(item.ReviewText)
+            @if (((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) >= 4.0m)
+            {
 
+
+                  <img src="~/Content/Image/Icon/icons8-heart-outline-80.png" alt="Avatar" style="width: 70px; height: 70px;">
+
+            }
+            else if (((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) < 4.0m &&
+                ((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) >= 2.5m)
+            {
+                  <img src="~/Content/Image/Icon/icons8-good-quality-80.png" alt="Avatar" style="width: 70px; height: 70px;">
+
+            }
+            else
+            {
+                  <img src="~/Content/Image/Icon/icons8-unlike-80.png" alt="Avatar" style="width: 70px; height: 70px;">
+
+            }
+                  <p class="alignright">
+                      @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId):
+                      @{
+                          for (int i = 0; i < item.RatingEmployees.RatingEmployeesInt; i++)
+                          {
+                  <i class="fa fa-star" style="color:#feb236;"></i>
+                          }
+                          for (int i = 0; i < 5 - item.RatingEmployees.RatingEmployeesInt; i++)
+                          {
+                  <i class="fa fa-star-o"></i>
+                              }
+
+
+                          }
+                      @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId):
+                      @{
+                          for (int i = 0; i < item.RatingMeals.RatingPlaceInt; i++)
+                          {
+                  <i class="fa fa-star" style="color:#feb236;"></i>
+                          }
+                          for (int i = 0; i < 5 - item.RatingMeals.RatingPlaceInt; i++)
+                          {
+                  <i class="fa fa-star-o"></i>
+                              }
+                          }
+                      @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId):
+                      @{
+                          for (int i = 0; i < item.RatingPlace.RatingPlaceInt; i++)
+                          {
+                  <i class="fa fa-star" style="color:#feb236;"></i>
+                          }
+                          for (int i = 0; i < 5 - item.RatingPlace.RatingPlaceInt; i++)
+                          {
+                  <i class="fa fa-star-o"></i>
+                              }
+                          }
+                  </p>
+            <p><span>@Html.DisplayNameFor(model => model.Reviews.Name): @Html.DisplayFor(modelItem => item.Name). </span>           </p>
+            <p class="alignright">
+                <b>  Ocena ogólna : @(((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3).ToString("#.##"))</b>
+            </p>
+            <div>
+
+                @Html.Raw(item.ReviewText)
+
+            </div>
         </div>
-    </div>
 
 
 }
 
 <h4 class="text-left">
-    @Html.ActionLink("Dodaj i swoją opinię!", "Create", "Home")
+@Html.ActionLink("Dodaj i swoją opinię!", "Create", "Home")
 </h4>
 
 
@@ -183,23 +233,23 @@
 
 <div id="newsletter-container">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-                <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
-                @using (Html.BeginForm("AddNewsletter", "home"))
-                {
-                    @Html.AntiForgeryToken()
+<div class="container">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
+        <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
+        @using(Html.BeginForm("AddNewsletter", "home"))
+        {
+            @Html.AntiForgeryToken()
 
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
+        @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
 
                     @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
                     @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
-                    <input type="submit" class="btn btn-custom-3" value="Zapisz się">
-                }
-            </div>
+            <input type="submit" class="btn btn-custom-3" value="Zapisz się">
+            }
+        </div>
         </div>
     </div>
 </div>

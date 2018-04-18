@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Eventy</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<br />
+<h2>Aktualne eventy - lista:</h2>
 <table class="table">
     <tr>
         <th>
@@ -33,32 +35,90 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.Take(20).OrderByDescending(p => p.DateSort)) {
+    @foreach (var item in ViewBag.ActualEvent)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                @Html.Raw(item.ContentString)
+            </td>
+            <td>
+                <div class="img_small">  <img src="@item.Files" alt="Tu powinien być obrazek"> </div>
+            </td>
+            <td>
+                @item.UrlFb
+            </td>
+            <td>
+                @item.DateSort.ToString("dd/MM/yyyy")
+
+            </td>
+            <td>
+                @item.DateInPage
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+            </td>
+        </tr>
+    }
+
+</table>
+<br /><br />
+<h2>Nieaktualne eventy - lista:</h2>
+<table class="table">
     <tr>
-        <td>
-            @Html.Raw(item.Title)
-        </td>
-        <td>
-            @Html.Raw(item.ContentString)
-        </td>
-        <td>
-            <div class="img_small">  <img src="@Html.DisplayFor(modelItem => item.Files)" alt="Tu powinien być obrazek"> </div>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlFb)
-        </td>
-        <td>
-            @Html.ValueFor(modelItem => item.DateSort, "{0:dd/MM/yyyy}")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateInPage)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Files)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlFb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateSort)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInPage)
+        </th>
+        <th></th>
     </tr>
-}
+
+    @foreach (var item in ViewBag.OldEvent)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                @Html.Raw(item.ContentString)
+            </td>
+            <td>
+                <div class="img_small">  <img src="@item.Files" alt="Tu powinien być obrazek"> </div>
+            </td>
+            <td>
+                @item.UrlFb
+            </td>
+            <td>
+                @item.DateSort.ToString("dd/MM/yyyy")
+
+            </td>
+            <td>
+                @item.DateInPage
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+            </td>
+        </tr>
+    }
 
 </table>
