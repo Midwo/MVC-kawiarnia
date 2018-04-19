@@ -20,7 +20,64 @@ namespace MVC_kawiarnia.DAL
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.CategoryProductName);
-            return View(products.ToList());
+            return View(products.ToList().OrderByDescending(p => p.ProductId));
+        }
+
+        public string CategoryCatch(int IdCategory)
+        {
+            switch (IdCategory)
+            {
+                case 1:
+                    return "Appetizers";
+                case 2:
+                    return "Soups";
+                case 3:
+                    return "Dinners";
+                case 4:
+                    return "Desserts";
+                case 5:
+                    return "Coffees";
+                case 6:
+                    return "Teas";
+                default:
+                    return "Index";
+            }
+        }
+
+
+        public ActionResult Appetizers()
+        {
+            var products = db.Products.Include(p => p.CategoryProductName);
+            return View(products.ToList().Where(p => p.CategoryProductNameId == 1).OrderByDescending(p => p.ProductId));
+        }
+
+        public ActionResult Soups()
+        {
+            var products = db.Products.Include(p => p.CategoryProductName);
+            return View(products.ToList().Where(p => p.CategoryProductNameId == 2).OrderByDescending(p => p.ProductId));
+        }
+        public ActionResult Dinners()
+        {
+            var products = db.Products.Include(p => p.CategoryProductName);
+            return View(products.ToList().Where(p => p.CategoryProductNameId == 3).OrderByDescending(p => p.ProductId));
+        }
+
+        public ActionResult Desserts()
+        {
+            var products = db.Products.Include(p => p.CategoryProductName);
+            return View(products.ToList().Where(p => p.CategoryProductNameId == 4).OrderByDescending(p => p.ProductId));
+        }
+
+        public ActionResult Coffees()
+        {
+            var products = db.Products.Include(p => p.CategoryProductName);
+            return View(products.ToList().Where(p => p.CategoryProductNameId == 5).OrderByDescending(p => p.ProductId));
+        }
+
+        public ActionResult Teas()
+        {
+            var products = db.Products.Include(p => p.CategoryProductName);
+            return View(products.ToList().Where(p => p.CategoryProductNameId == 6).OrderByDescending(p => p.ProductId));
         }
 
         // GET: Products/Details/5
@@ -127,7 +184,7 @@ namespace MVC_kawiarnia.DAL
             string NameWrapper = "";
             if (ModelState.IsValid)
             {
-
+                string Category = "";
 
                 foreach (var item in objImage.NewFiles)
                 {
@@ -137,7 +194,8 @@ namespace MVC_kawiarnia.DAL
                         product.File = SearchProducts.File;
                         db.Entry(product).State = EntityState.Modified;
                         db.SaveChanges();
-                        return RedirectToAction("Index");
+                        Category = CategoryCatch(product.CategoryProductNameId);
+                        return RedirectToAction(Category);
                     }
                     else
                     {
@@ -160,7 +218,10 @@ namespace MVC_kawiarnia.DAL
                 product.File = NameWrapper;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                Category = CategoryCatch(product.CategoryProductNameId);
+                return RedirectToAction(Category);
+
+
             }
             ViewBag.CategoryProductNameId = new SelectList(db.CategoryProductName, "CategoryProductNameId", "CategoryName", product.CategoryProductNameId);
             return View(product);
@@ -189,6 +250,7 @@ namespace MVC_kawiarnia.DAL
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
+            string Category = CategoryCatch(product.CategoryProductNameId);
             string fullPath = Request.MapPath(product.File);
             if (System.IO.File.Exists(fullPath))
             {
@@ -196,7 +258,7 @@ namespace MVC_kawiarnia.DAL
             }
             db.Products.Remove(product);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction(Category);
         }
 
         protected override void Dispose(bool disposing)

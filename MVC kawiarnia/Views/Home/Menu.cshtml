@@ -36,7 +36,7 @@
 
         @{
             <div class="row">
-                @foreach (var item in Model.Where(p => p.CategoryProductNameId <= 3).GroupBy(p => p.CategoryProductNameId))
+                @foreach (var item in Model.Where(p => p.CategoryProductNameId <= 3).GroupBy(p => p.CategoryProductNameId).OrderBy(p => p.Key))
                 {
                     bool active = false;
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb40">
@@ -100,7 +100,7 @@
 
         @{
             <div class="row">
-                @foreach (var item in Model.Where(p => p.CategoryProductNameId > 3).GroupBy(p => p.CategoryProductNameId))
+                @foreach (var item in Model.Where(p => p.CategoryProductNameId > 3).GroupBy(p => p.CategoryProductNameId).OrderBy(p => p.Key))
                 {
                     bool active = false;
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb40">

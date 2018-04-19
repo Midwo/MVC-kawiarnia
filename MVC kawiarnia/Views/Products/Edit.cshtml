@@ -71,7 +71,48 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @{
+        string x = "";
+        string y = "";
+
+        switch (Model.CategoryProductNameId)
+        {
+            case 1:
+                x = "Appetizers";
+                y = "przystawki";
+                break;
+            case 2:
+                x = "Soups";
+                y = "zupy";
+                break;
+            case 3:
+                x = "Dinners";
+                y = "obiady";
+                break;
+            case 4:
+                x = "Desserts";
+                y = "desery";
+                break;
+            case 5:
+                x = "Coffees";
+                y = "kawy";
+                break;
+            case 6:
+                x = "Teas";
+                y = "herbaty";
+                break;
+            default:
+                x = "Index";
+                y = "główna";
+                break;
+        }
+
+        @Html.ActionLink("Wróć do listy " + y + "", x);
+    }
+    |
+    @Html.ActionLink("Wróć do listy wszystkich", "Index")
+
+
 </div>
 
 <script>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MVC_kawiarnia.Models.Product>
+
+@{
+    ViewBag.Title = "Dinners";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dinners</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryProductName.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.File)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryProductName.CategoryName)
+            </td>
+            <td>
+                @Html.Raw(item.ProductName)
+            </td>
+            <td>
+                @Html.Raw(item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                <div class="img_small">  <img src="@item.File" alt="Tu powinien być obrazek"> </div>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>
+

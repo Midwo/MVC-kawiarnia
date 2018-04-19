@@ -57,9 +57,48 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @{
+        string x = "";
+        string y = "";
+
+        switch (Model.CategoryProductNameId)
+        {
+            case 1:
+                x = "Appetizers";
+                y = "przystawki";
+                break;
+            case 2:
+                x = "Soups";
+                y = "zupy";
+                break;
+            case 3:
+                x = "Dinners";
+                y = "obiady";
+                break;
+            case 4:
+                x = "Desserts";
+                y = "desery";
+                break;
+            case 5:
+                x = "Coffees";
+                y = "kawy";
+                break;
+            case 6:
+                x = "Teas";
+                y = "herbaty";
+                break;
+            default:
+                x = "Index";
+                y = "główna";
+                break;
+        }
+
+        @Html.ActionLink("Wróć do listy " + y + "", x);
+        } 
+        |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
     }
 </div>
