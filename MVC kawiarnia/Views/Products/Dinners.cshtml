@@ -1,15 +1,61 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.Product>
 
 @{
-    ViewBag.Title = "Dinners";
+    ViewBag.Title = "System menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dinners</h2>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System menu - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Przejsć do dodawania produktów do menu</b>
+                        </li>
+                        <li>
+                            <b>Przejść do edycji produktów z menu</b>
+                        </li>
+                        <li>
+                            <b>Podejrzeć dany produkt</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<input type="button" class="btn btn-primary" value="Dodaj nowy produkt" onclick="location.href='@Url.Action("Create")'" />
 <table class="table">
     <tr>
         <th>
@@ -49,9 +95,9 @@
                 <div class="img_small">  <img src="@item.File" alt="Tu powinien być obrazek"> </div>
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Podgląd", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ProductId })
             </td>
         </tr>
     }

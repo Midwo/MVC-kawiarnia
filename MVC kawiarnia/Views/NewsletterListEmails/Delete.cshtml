@@ -1,15 +1,60 @@
 ﻿@model MVC_kawiarnia.Models.NewsletterListEmail
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "System newsletter";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System newslettera, lista osób - Menu usuwania</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Usunąc rekord z bazy danych</b>
+                        </li>
+                        <li>
+                            <b>Wrócić do listy osób zapisanych w systemie newsletter</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<h3>Are you sure you want to delete this?</h3>
+
+<h3>Czy jesteś pewny, że chcesz usunąc ten rekord?</h3>
 <div>
-    <h4>NewsletterListEmail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,8 +79,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróc do listy", "Index")
         </div>
     }
 </div>

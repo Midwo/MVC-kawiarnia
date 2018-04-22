@@ -1,15 +1,59 @@
 ﻿@model MVC_kawiarnia.Models.Product
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "System menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System menu - Menu usuwania</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Usunąć dany produkt z menu</b>
+                        </li>
+                        <li>
+                            <b>Przejść do listy produktów</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Czy na pewno chcesz usunąc ten produkt z menu?</h3>
 <div>
-    <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -54,51 +98,52 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        @{
-        string x = "";
-        string y = "";
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @{
+                string x = "";
+                string y = "";
 
-        switch (Model.CategoryProductNameId)
-        {
-            case 1:
-                x = "Appetizers";
-                y = "przystawki";
-                break;
-            case 2:
-                x = "Soups";
-                y = "zupy";
-                break;
-            case 3:
-                x = "Dinners";
-                y = "obiady";
-                break;
-            case 4:
-                x = "Desserts";
-                y = "desery";
-                break;
-            case 5:
-                x = "Coffees";
-                y = "kawy";
-                break;
-            case 6:
-                x = "Teas";
-                y = "herbaty";
-                break;
-            default:
-                x = "Index";
-                y = "główna";
-                break;
-        }
+                switch (Model.CategoryProductNameId)
+                {
+                    case 1:
+                        x = "Appetizers";
+                        y = "przystawki";
+                        break;
+                    case 2:
+                        x = "Soups";
+                        y = "zupy";
+                        break;
+                    case 3:
+                        x = "Dinners";
+                        y = "obiady";
+                        break;
+                    case 4:
+                        x = "Desserts";
+                        y = "desery";
+                        break;
+                    case 5:
+                        x = "Coffees";
+                        y = "kawy";
+                        break;
+                    case 6:
+                        x = "Teas";
+                        y = "herbaty";
+                        break;
+                    default:
+                        x = "Index";
+                        y = "główna";
+                        break;
+                }
 
-        @Html.ActionLink("Wróć do listy " + y + "", x);
-        } 
-        |
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+                @Html.ActionLink("Wróć do listy " + y + "", x);
+            }
+            |
+            @Html.ActionLink("Wróć do głównej listy", "Index")
+        </div>
     }
 </div>

@@ -1,20 +1,62 @@
 ﻿@model MVC_kawiarnia.Models.InfoFirstPage
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "System zdjęć pierwsza strona";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>
-    Formularz edycji
-</h3>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System zdjęć z głównej strony - Menu edycji</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Edytować daną sekcję wyświetlaną na głównej stronie</b>
+                        </li>
+                        <li>
+                        <b>Wrócic do listy</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
 @using (Html.BeginForm("Edit", "InfoFirstPages", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h5>Witaj, w tym miejscu możesz edytować menu dla pierwszej strony. Elementy te mówią o menu Twojej kawiarni oraz rzeczach które mniej więcej oferujesz</h5>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.InfoFirstPageId)
@@ -44,8 +86,8 @@
         </div>
 
         <div class="form-group" id="selectedFiles">
-          
-          
+
+
         </div>
 
         <div class="form-group">
@@ -58,7 +100,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Zapisz" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -71,7 +113,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Wróć do listy", "Index")
 </div>
 
 
@@ -84,7 +126,7 @@
 
         selDiv = $("#selectedFiles");
         $("#myForm").on("submit", handleForm);
-        
+
     });
 
     function handleFileSelect(e) {
@@ -104,9 +146,9 @@
                 var html = "<label class= \"control-label col-md-2\" for=\"Files\">Dodane zdjęcie</label><div class=\"col-md-10 img_small\"><img src=\"" + e.target.result + "\" data-file='" + f.name + "'title='Nowe zdjęcie'>" + f.name + "<br clear=\"left\"/></div>";
                 selDiv.append(html);
             }
-               
+
             reader.readAsDataURL(f);
         });
-        
+
     }
 </script>

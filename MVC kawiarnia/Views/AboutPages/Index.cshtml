@@ -1,15 +1,61 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.AboutPage>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "System historii";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System historii z zakładki: o nas - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Przejść edycji wpisów na lini czasu</b>
+                        </li>
+                        <li>
+                            <b>Dodać nowy wpis na lini czasu</b>
+                        </li>
+                        <li>
+                            <b>Włączyć podgląd wybranego rekordu</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<input type="button" class="btn btn-primary" value="Dodaj nowy wspis" onclick="location.href='@Url.Action("Create")'" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -27,26 +73,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.Raw(item.Title)
-        </td>
-        <td>
-            @Html.Raw(item.Date)
-        </td>
-        <td>
-            @Html.Raw(item.UnderTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OwnerInfo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AboutPageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AboutPageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AboutPageId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                @Html.Raw(item.Date)
+            </td>
+            <td>
+                @Html.Raw(item.UnderTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerInfo)
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.AboutPageId }) |
+                @Html.ActionLink("Podgląd", "Details", new { id = item.AboutPageId }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.AboutPageId })
+            </td>
+        </tr>
+    }
 
 </table>

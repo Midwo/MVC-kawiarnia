@@ -1,15 +1,62 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.Coupons>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "System kuponów";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System kuponów i promocji - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Przejść do dodawania promocji/kuponu</b>
+                        </li>
+                        <li>
+                            <b>Przejsć do edycji promocji/kuponów</b>
+                        </li>
+                        <li>
+                            <b>Przejść do usuwania promocji/kuponów </b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<input type="button" class="btn btn-primary" value="Dodaj nowy kupon/promocję" onclick="location.href='@Url.Action("Create")'" />
+
 <table class="table">
     <tr>
         <th>
@@ -54,9 +101,9 @@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CouponsId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CouponsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CouponsId })
+            @Html.ActionLink("Edycja", "Edit", new { id=item.CouponsId }) |
+            @Html.ActionLink("Podgląd", "Details", new { id=item.CouponsId }) |
+            @Html.ActionLink("Usuwanie", "Delete", new { id=item.CouponsId })
         </td>
     </tr>
 }

@@ -1193,9 +1193,34 @@ figure.snip0057 {
     padding: 0px;
 }
 
-/*body.modal-open,
-.modal-open .navbar-fixed-top,
-.modal-open .navbar-fixed-bottom {
-    margin-right: 0px;
-}*/
 
+
+.image-aboutus-sm-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Image/pexels-photo-692103.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.lg-text {
+    font-size: 52px;
+    font-weight: 600;
+    text-transform: none;
+    color: #fff;
+}
+
+.image-aboutus-sm-banner p {
+    color: #fff;
+}
+
+.text-leftnew {
+    text-align: left;
+}
+
+.img-menu{
+    height: 60px;
+    width: 60px;
+}

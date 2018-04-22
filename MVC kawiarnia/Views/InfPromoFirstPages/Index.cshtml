@@ -1,15 +1,55 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.InfPromoFirstPage>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "System reklamy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System reklamy na głównej stronie - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Przejść do edycji danych na temat reklamy wyświetlanej na głównej stronie</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -36,36 +76,35 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img src="~/Content/Image/Icon/@item.InfPromoChoosePicture.ChoosePicture" alt="Promo" style="width:80%">
-          @*  @Html.DisplayFor(modelItem => item.InfPromoChoosePicture.ChoosePicture)*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainString)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnderString)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkedUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FacebookUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.InfPromoFirstPageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.InfPromoFirstPageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.InfPromoFirstPageId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Content/Image/Icon/@item.InfPromoChoosePicture.ChoosePicture" alt="Promo" style="width:80%">
+                @*  @Html.DisplayFor(modelItem => item.InfPromoChoosePicture.ChoosePicture)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnderString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkedUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacebookUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.InfPromoFirstPageId })
+            </td>
+        </tr>
+    }
 
 </table>

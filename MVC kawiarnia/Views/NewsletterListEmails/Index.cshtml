@@ -1,15 +1,61 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.NewsletterListEmail>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "System newsletter";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System newslettera, lista osób - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Edytować osoby korzystające z systemu newslettera</b>
+                        </li>
+                        <li>
+                            <b>Wprowadzać nową osobę do systemu</b>
+                        </li>
+                        <li>
+                            <b>Usuwać osoby, które mają przestać otrzymywać powiadomienia reklamowe</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<h2>Index</h2>
+<input type="button" class="btn btn-primary" value="Dodaj osobę" onclick="location.href='@Url.Action("Create")'" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -21,20 +67,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LeaveCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsletterListEmailId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsletterListEmailId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsletterListEmailId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveCode)
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.NewsletterListEmailId }) |
+                @Html.ActionLink("Detale", "Details", new { id = item.NewsletterListEmailId }) |
+                @Html.ActionLink("Usuwanie", "Delete", new { id = item.NewsletterListEmailId })
+            </td>
+        </tr>
+    }
 
 </table>

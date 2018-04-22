@@ -1,100 +1,156 @@
-﻿@model IEnumerable<MVC_kawiarnia.Models.Contact>
+﻿@model MVC_kawiarnia.Models.Contact
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "System kontaktu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System kontaktu, informacje - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Przejść do edycji danych na temat konta wykorzystywanego przez stronę WWW</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
             @Html.DisplayNameFor(model => model.Adress)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Company_name)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company_name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Mo)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mo)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Tu)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tu)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.We)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.We)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Th)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Th)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Fr)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fr)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Sa)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sa)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Su)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Su)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Url)
-        </th>
-        <th></th>
-    </tr>
+        </dt>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.We)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Th)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Su)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Url)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ContactId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ContactId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ContactId })
-        </td>
-    </tr>
-}
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
 
-</table>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ContactId })
+</p>
+

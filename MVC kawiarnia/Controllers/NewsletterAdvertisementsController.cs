@@ -18,6 +18,7 @@ namespace MVC_kawiarnia.Controllers
         private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
 
         private NewsletterAdvertisementContext db = new NewsletterAdvertisementContext();
+        private NewsletterAdvertisementContext db1 = new NewsletterAdvertisementContext();
 
         // GET: NewsletterAdvertisements
         public ActionResult Index()
@@ -113,6 +114,7 @@ namespace MVC_kawiarnia.Controllers
         {
             if (ModelState.IsValid)
             {
+                newsletterAdvertisement.Date = db1.NewsletterAdvertisements.Find(newsletterAdvertisement.NewsletterAdvertisementId).Date;
                 db.Entry(newsletterAdvertisement).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

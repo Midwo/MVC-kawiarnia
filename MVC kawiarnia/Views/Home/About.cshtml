@@ -18,7 +18,7 @@
             @foreach (var item in Model.OrderByDescending(x=> x.AboutPageId))
             {
             <div class="timeline__item">
-             <div class="timeline__item__date"> @Html.Raw(item.Date)</div>
+                <div class="timeline__item__date"> @Html.Raw(item.Date.Substring(3, item.Date.Length - 7))</div>
               <div class="timeline__item__content">
 
                 <h3 class="timeline__item__content__title">

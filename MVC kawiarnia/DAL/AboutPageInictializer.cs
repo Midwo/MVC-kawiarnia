@@ -13,9 +13,9 @@ namespace MVC_kawiarnia.DAL
         {
             var AboutPage = new List<AboutPage>
             {
-                new AboutPage {Date = "<b>Kwiecień</b> 2016", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 2006 roku w popiduwie małej" },
-                new AboutPage {Date = "<b>Kwiecień</b> 2017", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 1996 roku w popiduwie małej" },
-                new AboutPage {Date = "<b>Kwiecień</b> 2018", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 1996 roku w popiduwie małej" },
+                new AboutPage {Date = "<p><strong>Kwiecień </strong>2016</p>", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 2006 roku w wiosce małej" },
+                new AboutPage {Date = "<p><strong>Kwiecień </strong>2017</p>", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 1996 roku w wiosce małej" },
+                new AboutPage {Date = "<p><strong>Kwiecień </strong>2018</p>", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 1996 roku w wiosce małej" },
             };
             AboutPage.ForEach(g => context.AboutPage.Add(g));
             context.SaveChanges();

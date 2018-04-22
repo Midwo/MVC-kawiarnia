@@ -1,15 +1,56 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.NewsletterFirstEmail>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "System newsletter";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="image-aboutus-sm-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">System newslettera, pierwsza wiadomość - Menu główne</h1>
+                <div class="col-sm-4">
+                    <h4>Serdecznie proszę o:</h4>
+                    <ul>
+                        <li>
+                            Nie używanie wulgaryzmów w treści systemu
+                        </li>
+                        <li>
+                            Pozostanie chociaż paru wpisów w bazie danych
+                        </li>
+                        <li>
+                            Odwiedzić autora na stronie: www.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4><b>Możesz tutaj:</b></h4>
+                    <ul>
+                        <li>
+                            <b>Przejść do edycji pierwszej wysyłanej wiadomość po zapisaniu się do systemu newslettera</b>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Kontakt z autorem:</h4>
+                    <ul>
+                        <li>
+                            Strona: www.mdwojak.pl
+                        </li>
+                        <li>
+                            Email: michal.dwojak92@gmail.com | michal.mdwojak.pl
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -24,23 +65,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.Raw(item.Body)
-        </td>
-        <td>
-            @Html.Raw(item.Signature)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsletterFirstEmailId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsletterFirstEmailId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsletterFirstEmailId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.Raw(item.Body)
+            </td>
+            <td>
+                @Html.Raw(item.Signature)
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.NewsletterFirstEmailId })
+            </td>
+        </tr>
+    }
 
 </table>
