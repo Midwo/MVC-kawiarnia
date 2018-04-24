@@ -13,9 +13,9 @@ namespace MVC_kawiarnia.DAL
         {
             var AboutPage = new List<AboutPage>
             {
-                new AboutPage {Date = "<p><strong>Kwiecień </strong>2016</p>", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 2006 roku w wiosce małej" },
-                new AboutPage {Date = "<p><strong>Kwiecień </strong>2017</p>", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 1996 roku w wiosce małej" },
-                new AboutPage {Date = "<p><strong>Kwiecień </strong>2018</p>", Title = "Założenie firmy", OwnerInfo = "Właściciel", UnderTitle = "Firma założona w 1996 roku w wiosce małej" },
+                new AboutPage {Date = "Styczeń 2016", Title = "<p>Założenie firmy</p>", OwnerInfo = "Właściciel", UnderTitle = "<p>Firma założona i zarejestrowana w 2016 roku w Dąbrowie G&oacute;rniczej. Dodatkowo zorganizowane zostało wielkie otarcie naszej restauracji CafePiano</p>", DateSort = Convert.ToDateTime("2016-01-05 00:00:00.000")},
+                new AboutPage {Date = "Kwiecień 2017", Title = "<p>Nowy wsp&oacute;łwłaściciel</p>", OwnerInfo = "Współwłaściciel", UnderTitle = "<p>Firma rozszerzyła się o nowego wsp&oacute;łwłaściela: Lucjana Dorjana. Kapitał zakładowy wz&oacute;rsł do 30 000 złotych</p>", DateSort = Convert.ToDateTime("2017-04-01 00:00:00.000")},
+                new AboutPage {Date = "Maj 2018", Title = "<p>Akcja&nbsp;charytatywna</p>", OwnerInfo = "Właściciel", UnderTitle = "<p>Organizowaliśmy akcję charytatywną dla os&oacute;b starszych i w ten dzień każdy z nich, m&oacute;gł poczuć się u nas jak u siebie! <strong>Za darmo!</strong></p>", DateSort = Convert.ToDateTime("2018-05-03 00:00:00.000")},
             };
             AboutPage.ForEach(g => context.AboutPage.Add(g));
             context.SaveChanges();

@@ -83,7 +83,7 @@ namespace MVC_kawiarnia.Controllers
                     {
                         msg.Subject = item.Title;
                         msg.Body = item.Body + "<br><br>";
-                        msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://localhost:55321/Home/LeaveNewsletter/" + newsletterListEmail.Email + "/" + newsletterListEmail.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
+                        msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://cafepiano.mdwojak.pl/Home/LeaveNewsletter/" + newsletterListEmail.Email + "/" + newsletterListEmail.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
                         msg.Body += item.Signature;
                     }
 
@@ -100,20 +100,7 @@ namespace MVC_kawiarnia.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult Uploadx(ImageFile objImage)
-        {
-        
-            foreach (var item in objImage.Files)
-            {
-                if (item != null && item.ContentLength > 0)
-                {
-                    item.SaveAs(Path.Combine(Server.MapPath("/Content/Upload"), Path.GetFileName(item.FileName)));
-                }
 
-            }
-            return View();
-        }
         
         public ActionResult Uploadx()
         {
@@ -193,7 +180,7 @@ namespace MVC_kawiarnia.Controllers
 
         public ActionResult Coupons()
         {
-            return View(DbCoupons.Coupons.ToList());
+            return View(DbCoupons.Coupons.ToList().Where(p => p.DateSort >= DateTime.Now));
         }
 
         [Authorize(Roles = "AppAdmin")]

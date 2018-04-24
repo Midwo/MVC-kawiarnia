@@ -14,9 +14,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/ckeditor")
     <link href="~/Content/lightbox.css" rel="stylesheet" />
-
-
+    <link rel="icon" href="~/Content/Image/favicon.ico" />
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -51,6 +51,7 @@
                 <div class="call-to-action">
                     <p>&copy;  @DateTime.Now.Year - Michał Dwojak</p>
                     <input class="btn btn-info btn-xl sr-button" type="button" value="Polityka prywatności" onclick="location.href='@Url.Action("Policy", "Home")'" />
+                    <input class="btn btn-success btn-xl sr-button" type="button" value="Wróć do mdwojak.pl" onclick="location.href='http://mdwojak.pl';" />
                 </div>
             </div>
         </footer>

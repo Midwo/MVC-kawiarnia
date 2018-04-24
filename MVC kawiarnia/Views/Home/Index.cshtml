@@ -2,9 +2,9 @@
 
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "CafePiano";
 }
-<div class="jumbotron">
+<div class="jumbotron jumbotron-home">
     <h1>
         @foreach (var item in Model.ListJumbtronText.Take(1))
         {
@@ -20,7 +20,7 @@
         }
 
     </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Przeczytaj więcej &raquo;</a></p>
+    <p><a href="@Url.Action("Event","Home")" class="btn btn-primary btn-lg">Zobacz co organizujemy &raquo;</a></p>
 
 </div>
 

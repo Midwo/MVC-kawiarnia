@@ -33,7 +33,7 @@ textarea {
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
     background-size: 100%;
-    color: #ffffff
+    color: #ffffff;
 }
 
 .jumbotron-event {
@@ -42,7 +42,8 @@ textarea {
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
     background-size: 100%;
-    color: #ffffff
+    color: #ffffff;
+    padding: 30px;
 }
 
 .jumbotron-dinner {
@@ -51,7 +52,8 @@ textarea {
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
     background-size: 100%;
-    color: #ffffff
+    color: #ffffff;
+    padding: 30px;
 }
 
 .jumbotron-drinks {
@@ -60,7 +62,37 @@ textarea {
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
     background-size: 100%;
-    color: #ffffff
+    color: #ffffff;
+    padding: 30px;
+}
+
+.jumbotron-coupon {
+    background: url('Image/pexels-photo-69866.jpeg') no-repeat center center;
+    /*-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;*/
+    background-size: 100%;
+    color: #ffffff;
+    padding: 30px;
+}
+.jumbotron-about {
+    background: url('Image/pexels-photo-131925(1).jpeg') no-repeat center center;
+    /*-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;*/
+    background-size: 100%;
+    color: #ffffff;
+    margin-bottom: -30px;
+
+}
+.jumbotron-home {
+    background: url('Image/pumpkin-on-the-jute-background-1475658606l4v.jpg') no-repeat center center;
+    /*-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;*/
+    background-size: 100%;
+    color: #ffffff;
+    padding: 30px;
 }
 
 .centered {
@@ -1223,4 +1255,8 @@ figure.snip0057 {
 .img-menu{
     height: 60px;
     width: 60px;
+}
+
+.img_coupon{
+    height: 200px;
 }

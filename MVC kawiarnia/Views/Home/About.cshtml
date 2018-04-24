@@ -1,12 +1,22 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.AboutPage>
 
 @{
-    ViewBag.Title = "About";
+    ViewBag.Title = "O nas";
 }
 @*<h2>@ViewBag.Title.</h2>
     <h3>@ViewBag.Message</h3>*@
 
 @*<p>Use this area to provide additional information.</p>*@
+
+<div class="jumbotron jumbotron-about">
+    <h1>
+        Historia CafePiano
+    </h1>
+    <p class="lead">
+        Zobacz jak zaczynaliśmy i jak zmienialiśmy się właśnie dla Was!
+
+    </p>
+</div>
 
 <div class="page-section page-section--gray">
     <div class="wrapper">
@@ -15,10 +25,17 @@
         <div class="timeline">
 
 
-            @foreach (var item in Model.OrderByDescending(x=> x.AboutPageId))
+            @foreach (var item in Model.OrderByDescending(x=> x.DateSort))
             {
             <div class="timeline__item">
-                <div class="timeline__item__date"> @Html.Raw(item.Date.Substring(3, item.Date.Length - 7))</div>
+                <div class="timeline__item__date">
+
+                    @{
+        String[] substrings = item.Date.Split(' ');
+                <b>@substrings[0]</b>
+                @substrings[1]
+                    }
+                </div>
               <div class="timeline__item__content">
 
                 <h3 class="timeline__item__content__title">

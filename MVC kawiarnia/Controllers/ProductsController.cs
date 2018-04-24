@@ -11,6 +11,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.DAL
 {
+    [Authorize(Roles = "AppAdmin")]
     public class ProductsController : Controller
     {
         private ProductContext db = new ProductContext();

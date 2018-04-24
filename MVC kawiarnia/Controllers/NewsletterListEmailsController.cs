@@ -11,6 +11,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
+    [Authorize(Roles = "AppAdmin")]
     public class NewsletterListEmailsController : Controller
     {
         private NewsletterListEmailContext db = new NewsletterListEmailContext();

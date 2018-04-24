@@ -56,7 +56,7 @@
 <br />
 
 <input type="button" class="btn btn-primary" value="Dodaj nowy kupon/promocję" onclick="location.href='@Url.Action("Create")'" />
-
+<h4>Aktualne:</h4>
 <table class="table">
     <tr>
         <th>
@@ -77,35 +77,105 @@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateSort)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in ViewBag.ActualEvent)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.CompanyName)
+            </td>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                <div class="img_small">  <img src="@item.Files" alt="Tu powinien być obrazek"> </div>
+            </td>
+            <td>
+                @Html.Raw(item.UnderTitle)
+            </td>
+            <td>
+                @item.Code
+            </td>
+            <td>
+                @item.Date
+            </td>
+            <td>
+                @item.DateSort.ToString("dd/MM/yyyy")
+
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.CouponsId }) |
+                @Html.ActionLink("Podgląd", "Details", new { id = item.CouponsId }) |
+                @Html.ActionLink("Usuwanie", "Delete", new { id = item.CouponsId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h4>Nieaktualne:</h4>
+<table class="table">
     <tr>
-        <td>
-            @Html.Raw(item.CompanyName)
-        </td>
-        <td>
-            @Html.Raw(item.Title)
-        </td>
-        <td>
-            <div class="img_small">  <img src="@Html.DisplayFor(modelItem => item.Files)" alt="Tu powinien być obrazek"> </div>
-        </td>
-        <td>
-            @Html.Raw(item.UnderTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edycja", "Edit", new { id=item.CouponsId }) |
-            @Html.ActionLink("Podgląd", "Details", new { id=item.CouponsId }) |
-            @Html.ActionLink("Usuwanie", "Delete", new { id=item.CouponsId })
-        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Files)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnderTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateSort)
+        </th>
+        <th></th>
     </tr>
-}
+
+    @foreach (var item in ViewBag.OldEvent)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.CompanyName)
+            </td>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                <div class="img_small">  <img src="@item.Files" alt="Tu powinien być obrazek"> </div>
+            </td>
+            <td>
+                @Html.Raw(item.UnderTitle)
+            </td>
+            <td>
+                @item.Code
+            </td>
+            <td>
+                @item.Date
+            </td>
+            <td>
+                @item.DateSort.ToString("dd/MM/yyyy")
+
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.CouponsId }) |
+                @Html.ActionLink("Podgląd", "Details", new { id = item.CouponsId }) |
+                @Html.ActionLink("Usuwanie", "Delete", new { id = item.CouponsId })
+            </td>
+        </tr>
+    }
 
 </table>

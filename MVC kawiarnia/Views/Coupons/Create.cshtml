@@ -13,8 +13,9 @@
     <script>
         $(function () {
             $("#Date").datepicker({
-                altField: "#Date",
-                altFormat: "d MM, yy",
+                dateFormat: "d MM, yy",
+                altField: "#DateSort",
+                altFormat: "dd.m.yy",
                 dayNamesMin: ['NIE', 'PON', 'WTO', 'ŚRO', 'CZW', 'PTI', 'SOB'],
                 monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Siepierń", "Wrzesień", "Październik", "Listopad", "Grudzień"],
             });
@@ -127,6 +128,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateSort, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateSort, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateSort, "", new { @class = "text-danger" })
             </div>
         </div>
 

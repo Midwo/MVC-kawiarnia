@@ -11,6 +11,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
+    [Authorize(Roles = "AppAdmin")]
     public class AboutPagesController : Controller
     {
         private AboutPageContext db = new AboutPageContext();
@@ -47,7 +48,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AboutPageId,Title,Date,UnderTitle,OwnerInfo")] AboutPage aboutPage)
+        public ActionResult Create([Bind(Include = "AboutPageId,Title,Date,UnderTitle,OwnerInfo,DateSort")] AboutPage aboutPage)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +80,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AboutPageId,Title,Date,UnderTitle,OwnerInfo")] AboutPage aboutPage)
+        public ActionResult Edit([Bind(Include = "AboutPageId,Title,Date,UnderTitle,OwnerInfo,DateSort")] AboutPage aboutPage)
         {
             if (ModelState.IsValid)
             {

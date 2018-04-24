@@ -11,6 +11,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
+    [Authorize(Roles = "AppAdmin")]
     public class SendEmailAccountsController : Controller
     {
         private SendEmailAccountContext db = new SendEmailAccountContext();

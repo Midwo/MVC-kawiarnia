@@ -17,8 +17,8 @@ namespace MVC_kawiarnia.Models
         public string Title { get; set; }
 
         [AllowHtml]
-        [Display(Name = "Data wpisu")]
-        [Required(ErrorMessage = "Musisz wprowadzić tytuł")]
+        [Display(Name = "Data wyświetlana")]
+        [Required(ErrorMessage = "Musisz wprowadzić datę")]
         public string Date { get; set; }
 
         [AllowHtml]
@@ -29,5 +29,11 @@ namespace MVC_kawiarnia.Models
         [Display(Name = "Podpis")]
         [Required(ErrorMessage = "Musisz wprowadzić podpis")]
         public string OwnerInfo { get; set; }
+
+        [Display(Name = "Data sortowania")]
+        [Required(ErrorMessage = "Musisz wprowadzić datę")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        public DateTime DateSort { get; set; }
+
     }
 }

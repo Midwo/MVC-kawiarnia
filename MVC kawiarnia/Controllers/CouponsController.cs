@@ -12,6 +12,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
+    [Authorize(Roles = "AppAdmin")]
     public class CouponsController : Controller
     {
         private CouponsContext db = new CouponsContext();
@@ -20,7 +21,9 @@ namespace MVC_kawiarnia.Controllers
         // GET: Coupons
         public ActionResult Index()
         {
-            return View(db.Coupons.ToList());
+            ViewBag.OldEvent = db.Coupons.OrderByDescending(p => p.DateSort).Where(p => p.DateSort < DateTime.Now).ToList();
+            ViewBag.ActualEvent = db.Coupons.OrderBy(p => p.DateSort).Where(p => p.DateSort >= DateTime.Now).ToList();
+            return View();
         }
 
         // GET: Coupons/Details/5
@@ -49,7 +52,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CouponsId,CompanyName,Title,Files,UnderTitle,Code,Date")] Coupons coupons, ImageFile objImage)
+        public ActionResult Create([Bind(Include = "CouponsId,CompanyName,Title,Files,UnderTitle,Code,Date,DateSort")] Coupons coupons, ImageFile objImage)
         {
             //if (ModelState.IsValid)
             //{
@@ -109,7 +112,7 @@ namespace MVC_kawiarnia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CouponsId,CompanyName,Title,Files,UnderTitle,Code,Date")] Coupons coupons, ImageFile objImage)
+        public ActionResult Edit([Bind(Include = "CouponsId,CompanyName,Title,Files,UnderTitle,Code,Date,DateSort")] Coupons coupons, ImageFile objImage)
         {
             string NameWrapper = "";
             if (ModelState.IsValid)

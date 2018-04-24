@@ -12,6 +12,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
+    [Authorize(Roles = "AppAdmin")]
     public class NewsletterAdvertisementsController : Controller
     {
         private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
@@ -73,7 +74,7 @@ namespace MVC_kawiarnia.Controllers
                         msg.BodyEncoding = System.Text.Encoding.UTF8;
                         msg.Subject = newsletterAdvertisement.Title;
                         msg.Body = newsletterAdvertisement.Body + "<br><br>";
-                        msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://localhost:55321/Home/LeaveNewsletter/" + EmailAccount.Email + "/" + EmailAccount.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
+                        msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://cafepiano.mdwojak.pl/Home/LeaveNewsletter/" + EmailAccount.Email + "/" + EmailAccount.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
                         msg.Body += newsletterAdvertisement.Signature;
                         msg.IsBodyHtml = true;
                         mailServer.Send(msg);

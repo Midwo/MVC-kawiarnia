@@ -62,6 +62,9 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DateSort)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
@@ -73,27 +76,30 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.OrderByDescending(p => p.DateSort))
     {
-        <tr>
-            <td>
-                @Html.Raw(item.Title)
-            </td>
-            <td>
-                @Html.Raw(item.Date)
-            </td>
-            <td>
-                @Html.Raw(item.UnderTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OwnerInfo)
-            </td>
-            <td>
-                @Html.ActionLink("Edycja", "Edit", new { id = item.AboutPageId }) |
-                @Html.ActionLink("Podgląd", "Details", new { id = item.AboutPageId }) |
-                @Html.ActionLink("Usuń", "Delete", new { id = item.AboutPageId })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.Raw(item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateSort)
+        </td>
+        <td>
+            @Html.Raw(item.Date)
+        </td>
+        <td>
+            @Html.Raw(item.UnderTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerInfo)
+        </td>
+        <td>
+            @Html.ActionLink("Edycja", "Edit", new { id = item.AboutPageId }) |
+            @Html.ActionLink("Podgląd", "Details", new { id = item.AboutPageId }) |
+            @Html.ActionLink("Usuń", "Delete", new { id = item.AboutPageId })
+        </td>
+    </tr>
     }
 
 </table>

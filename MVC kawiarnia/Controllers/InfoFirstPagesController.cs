@@ -12,6 +12,7 @@ using MVC_kawiarnia.Models;
 
 namespace MVC_kawiarnia.Controllers
 {
+    [Authorize(Roles = "AppAdmin")]
     public class InfoFirstPagesController : Controller
     {
         private InfoFirstPageContext db = new InfoFirstPageContext();

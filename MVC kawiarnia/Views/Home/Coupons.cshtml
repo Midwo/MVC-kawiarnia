@@ -1,9 +1,21 @@
 ﻿@model IEnumerable<MVC_kawiarnia.Models.Coupons>
 
 @{
-    ViewBag.Title = "Coupons";
+    ViewBag.Title = "Kupony";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="jumbotron jumbotron-coupon">
+    <h1>
+        Kupony i promocje
+    </h1>
+    <p class="lead">
+        Zobacz koniecznie z jakiej promocji/kuponu możesz aktualnie skorzystać z listy poniżej: 
+
+    </p>
+    <p><a href="@Url.Action("Event","Home")" class="btn btn-primary btn-lg">Zobacz również co organizujemy &raquo;</a></p>
+
+</div>
+
 <div class="row centered1">
     <h2 class="text-center"><b>Aktualne</b> kupony i promocje:</h2>
 
@@ -16,7 +28,7 @@
                     <div class="container coupons">
                         <h3>@Html.Raw(item.CompanyName)</h3>
                     </div>
-                    <img src="@Html.DisplayFor(modelItem => item.Files)" alt="Avatar" style="width:100%;">
+                    <img src="@Html.DisplayFor(modelItem => item.Files)" class="img_coupon" alt="Avatar" style="width:100%;">
                     <div class="container" style="background-color:white">
                         <h2>@Html.Raw(item.Title)</h2>
                         @Html.Raw(item.UnderTitle)
