@@ -203,6 +203,7 @@
     <Compile Include="Controllers\ContactMessagesController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoFirstPagesController.cs" />
@@ -333,24 +334,6 @@
     <Content Include="Content\Image\latte-spider-web.jpg" />
     <Content Include="Content\Image\loading.gif" />
     <Content Include="Content\Image\menu-restaurant-vintage-table.jpg" />
-    <Content Include="Content\Image\Menu\0328511c-9277-4a73-af01-389193c7a185.jpg" />
-    <Content Include="Content\Image\Menu\0a91244d-3f3a-4d5c-8a0f-7b322b00bbfb.jpg" />
-    <Content Include="Content\Image\Menu\1656dcf5-078a-4208-b612-791ab89ab3a8.jpeg" />
-    <Content Include="Content\Image\Menu\3756a3f0-e24a-46cf-ab83-2c3d79d1b031.jpeg" />
-    <Content Include="Content\Image\Menu\442381c5-b0c3-483e-ac2b-705e7ca4652b.jpg" />
-    <Content Include="Content\Image\Menu\502253dc-60c8-4ebb-b53e-0be5b108ec51.jpg" />
-    <Content Include="Content\Image\Menu\5aded7d4-170c-4164-b74a-2e8dde60a506.jpg" />
-    <Content Include="Content\Image\Menu\5d6d0bd3-9caa-4939-870d-968ee71e9fab.jpg" />
-    <Content Include="Content\Image\Menu\6314320d-5fe1-4403-beb2-2679a48faefe.jpg" />
-    <Content Include="Content\Image\Menu\67960934-43c0-4fdf-a44a-28eed1d876ce.jpg" />
-    <Content Include="Content\Image\Menu\6a7ae023-5f20-4745-b284-f20adb9396fa.jpg" />
-    <Content Include="Content\Image\Menu\6ff25ddc-1e0e-4bc3-aeca-b12bc90e2a6d.jpg" />
-    <Content Include="Content\Image\Menu\82828241-c467-43d8-9eec-bbffa4858942.jpg" />
-    <Content Include="Content\Image\Menu\93054d39-cb73-43d3-b380-646e5478353c.jpeg" />
-    <Content Include="Content\Image\Menu\b4126900-ce51-4121-953a-981c222821c5.jpg" />
-    <Content Include="Content\Image\Menu\b578a9df-0529-412a-8a48-38d3913a3af1.jpg" />
-    <Content Include="Content\Image\Menu\e905111a-63f9-404d-8a0c-926ef6784489.jpg" />
-    <Content Include="Content\Image\Menu\f1a5e59d-67fe-492f-8195-9c907a0fc468.jpg" />
     <Content Include="Content\Image\next.png" />
     <Content Include="Content\Image\people-eiffel-tower-lights-night.jpg" />
     <Content Include="Content\Image\pexels-photo-131925%281%29.jpeg" />
@@ -470,6 +453,7 @@
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -690,11 +674,13 @@
     <Content Include="Views\Products\Desserts.cshtml" />
     <Content Include="Views\Products\Coffees.cshtml" />
     <Content Include="Views\Products\Teas.cshtml" />
+    <Content Include="Views\ErrorPage\ErrorMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Image\Coupons\" />
     <Folder Include="Content\Image\Events\" />
+    <Folder Include="Content\Image\Menu\" />
     <Folder Include="Content\Menu\" />
     <Folder Include="Content\Upload\" />
     <Folder Include="Views\Default\" />

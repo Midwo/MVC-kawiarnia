@@ -26,8 +26,8 @@ namespace MVC_kawiarnia.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BitCoinKurs;Integrated Securit" +
-            "y=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql5.webio.pl,2401;Initial Catalog=agent2214_db1portfolio;Persist S" +
+            "ecurity Info=True;User ID=agent2214_midmax;Password=1oP78@ever")]
         public string DefaultString {
             get {
                 return ((string)(this["DefaultString"]));
