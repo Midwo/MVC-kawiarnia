@@ -1,9 +1,16 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "Błąd";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<div class="container">
+    <div class="jumbotron">
+        <div class="text-center"><i class="fa fa-5x fa-frown-o" style="color:#d9534f;"></i></div>
+        <h1 class="text-center">404 - Nie znaleziono strony<p> </p><p><small class="text-center">Coś poszło nie tak [...]</small></p></h1>
+        <p class="text-center"> Jesteś w miejscu w którym nie powinneś być - Spróbuj wrócić na główną stronę.</p>
+        <p class="text-center"><a class="btn btn-primary" href=@Url.Action("Index", "Home")><i class="fa fa-home"></i> Zabierz mnie na główną</a></p>
+    </div>
+</div>
+
 

@@ -20,6 +20,7 @@ namespace MVC_kawiarnia.Controllers
         private WorkersListContext DbWorkserList = new WorkersListContext();
         private SendEmailAccountContext DbSendEmailAccount = new SendEmailAccountContext();
         private NewsletterListEmailContext DbNewsletterListEmail = new NewsletterListEmailContext();
+        private NewsletterListEmailContext DbNewsletterListEmailSearch = new NewsletterListEmailContext();
         private InfPromoFirstPageContext DbInfPromoFirstPage = new InfPromoFirstPageContext();
         private NewsletterFirstEmailContext DbNewsletterFirstEmail = new NewsletterFirstEmailContext();
         private InfoFirstPageContext DbInfoFirstPage = new InfoFirstPageContext();
@@ -58,40 +59,45 @@ namespace MVC_kawiarnia.Controllers
 
             if (ModelState.IsValid)
             {
-                newsletterListEmail.LeaveCode = Convert.ToString(Guid.NewGuid());
-                DbNewsletterListEmail.NewsletterListEmail.Add(newsletterListEmail);
-                DbNewsletterListEmail.SaveChanges();
-               
-
-
-                foreach (var EmailAccount in DbSendEmailAccount.EmailAccount)
+                var find = DbNewsletterListEmailSearch.NewsletterListEmail.Where(i => i.Email == newsletterListEmail.Email);
+                if (find.Count() == 0)
                 {
 
-                    SmtpClient mailServer = new SmtpClient(EmailAccount.Host, EmailAccount.Port);
-                    mailServer.EnableSsl = true;
+                    newsletterListEmail.LeaveCode = Convert.ToString(Guid.NewGuid());
+                    DbNewsletterListEmail.NewsletterListEmail.Add(newsletterListEmail);
+                    DbNewsletterListEmail.SaveChanges();
 
-                    mailServer.Credentials = new System.Net.NetworkCredential(EmailAccount.Email, EmailAccount.Password);
 
-                    MailMessage msg = new MailMessage();
 
-                    msg.From = new MailAddress(EmailAccount.Email, EmailAccount.Signature);
+                    foreach (var EmailAccount in DbSendEmailAccount.EmailAccount)
+                    {
 
-                  
+                        SmtpClient mailServer = new SmtpClient(EmailAccount.Host, EmailAccount.Port);
+                        mailServer.EnableSsl = true;
+
+                        mailServer.Credentials = new System.Net.NetworkCredential(EmailAccount.Email, EmailAccount.Password);
+
+                        MailMessage msg = new MailMessage();
+
+                        msg.From = new MailAddress(EmailAccount.Email, EmailAccount.Signature);
+
+
                         msg.To.Add(newsletterListEmail.Email);
 
-                    foreach (var item in DbNewsletterFirstEmail.NewsletterFirstEmail)
-                    {
-                        msg.Subject = item.Title;
-                        msg.Body = item.Body + "<br><br>";
-                        msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://cafepiano.mdwojak.pl/Home/LeaveNewsletter/" + newsletterListEmail.Email + "/" + newsletterListEmail.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
-                        msg.Body += item.Signature;
+                        foreach (var item in DbNewsletterFirstEmail.NewsletterFirstEmail)
+                        {
+                            msg.Subject = item.Title;
+                            msg.Body = item.Body + "<br><br>";
+                            msg.Body += "W celu wypisania się z otrzymywania informacji na temat promocji i nowości - proszę wejść na link: <a href=" + "http://cafepiano.mdwojak.pl/Home/LeaveNewsletter/" + newsletterListEmail.Email + "/" + newsletterListEmail.LeaveCode + "" + ">Wypisuję się</a> <br><br> ";
+                            msg.Body += item.Signature;
+                        }
+
+
+
+                        msg.IsBodyHtml = true;
+                        mailServer.Send(msg);
+
                     }
-
-                   
-
-                    msg.IsBodyHtml = true;
-                    mailServer.Send(msg);
-
                 }
                 return RedirectToAction("Index");
 

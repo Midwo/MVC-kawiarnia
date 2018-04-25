@@ -30,6 +30,7 @@ namespace MVC_kawiarnia.Models
 
         [Display(Name = "Kiedy - data normalna")]
         [Required(ErrorMessage = "Musisz wprowadzić treść")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime DateSort { get; set; }
 
         [Display(Name = "Kiedy - data wyświetlana")]

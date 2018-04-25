@@ -39,7 +39,7 @@ namespace MVC_kawiarnia.Models
 
         [Display(Name = "Data sortowania")]
         [Required(ErrorMessage = "Musisz wprowadzić datę")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime DateSort { get; set; }
 
 

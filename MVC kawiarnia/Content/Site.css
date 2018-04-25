@@ -40,7 +40,7 @@ textarea {
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
-    background-size: 100%;
+    background-size: cover;
     color: #ffffff;
     padding: 30px;
 }
@@ -50,7 +50,7 @@ textarea {
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
-    background-size: 100%;
+    background-size: cover;
     color: #ffffff;
     padding: 30px;
 }
@@ -60,7 +60,7 @@ textarea {
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
-    background-size: 100%;
+    background-size: cover;
     color: #ffffff;
     padding: 30px;
 }
@@ -70,7 +70,7 @@ textarea {
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
-    background-size: 100%;
+    background-size: cover;
     color: #ffffff;
     padding: 30px;
 }
@@ -79,17 +79,16 @@ textarea {
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
-    background-size: 100%;
+    background-size: cover;
     color: #ffffff;
-    margin-bottom: -30px;
-
+    padding: 30px;
 }
 .jumbotron-home {
     background: url('Image/pumpkin-on-the-jute-background-1475658606l4v.jpg') no-repeat center center;
     /*-webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;*/
-    background-size: 100%;
+    background-size: cover;
     color: #ffffff;
     padding: 30px;
 }
@@ -780,7 +779,7 @@ figure.snip0057 {
 }
 
 .timeline__item {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     position: relative;
 }
 
@@ -1014,7 +1013,7 @@ figure.snip0057 {
         }
 
             .event-list > li > .info > .title {
-                font-size: 17pt;
+                font-size: 16pt;
                 font-weight: 700;
                 margin: 0px;
             }
@@ -1258,4 +1257,24 @@ figure.snip0057 {
 
 .img_coupon{
     height: 200px;
+}
+
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+    margin-right: 0px;
+    overflow: visible;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    display: none;
+    overflow: auto;
+    overflow-y: hidden;
 }
