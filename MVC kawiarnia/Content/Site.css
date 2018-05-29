@@ -1278,3 +1278,26 @@ body.modal-open,
     overflow: auto;
     overflow-y: hidden;
 }
+
+#info-demo {
+    position: fixed;
+    right: 0px;
+    top: 45%;
+    background-color: rgba(0, 102, 235, 0.62);
+    z-index: 5555;
+    writing-mode: tb-rl;
+    text-align: center;
+    width: 35px;
+    height: auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-right: 3px;
+    color: white;
+    font-size: 20px;
+    margin: -2.5em 0 0 0;
+    font-weight: bold;
+    border-radius: 1em 0em 0em 1em;
+}
+    #info-demo:hover {
+        background-color: rgb(13, 104, 221);
+    }
