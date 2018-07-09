@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <header>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,20 +33,25 @@
                 @*@Html.ActionLink("CafePiano", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
 
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("CafePiano", "Index", "Home")</li>
-                    <li>@Html.ActionLink("O nas", "About", "Home")</li>
-                    <li>@Html.ActionLink("Wydarzenia", "Event", "Home")</li>
-                    <li>@Html.ActionLink("Promocje", "Coupons", "Home")</li>
-                    <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+            <nav>
+                <div class="navbar-collapse collapse">
 
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("CafePiano", "Index", "Home")</li>
+                        <li>@Html.ActionLink("O nas", "About", "Home")</li>
+                        <li>@Html.ActionLink("Wydarzenia", "Event", "Home")</li>
+                        <li>@Html.ActionLink("Promocje", "Coupons", "Home")</li>
+                        <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
+                        <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+
+                    </ul>
+
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </nav>
         </div>
     </div>
+        </header>
     <div class="container body-content">
         <div id="div-bolid">
         <div id="info-demo">

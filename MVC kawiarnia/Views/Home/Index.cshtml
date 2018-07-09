@@ -4,212 +4,206 @@
 @{
     ViewBag.Title = "CafePiano";
 }
-<div class="jumbotron jumbotron-home">
-    <h1>
-        @foreach (var item in Model.ListJumbtronText.Take(1))
-        {
-            @item.JumbotronIdText1
-        }
 
-    </h1>
-    <p class="lead">
-        @foreach (var item in Model.ListJumbtronText.Take(1))
-        {
-            @item.JumbotronIdText2
+<main>
+    <article>
+        <section>
+            <div class="jumbotron jumbotron-home">
+                <h1>
+                    @foreach (var item in Model.ListJumbtronText.Take(1))
+                    {
+                @item.JumbotronIdText1
+                    }
 
-        }
+                </h1>
+                <p class="lead">
+                    @foreach (var item in Model.ListJumbtronText.Take(1))
+                    {
+                @item.JumbotronIdText2
 
-    </p>
-    <p><a href="@Url.Action("Event","Home")" class="btn btn-primary btn-lg">Zobacz co organizujemy &raquo;</a></p>
+                    }
 
-</div>
-
-
-
-
-<div class="row centered1">
-    <h2 class="text-center"><b>U nas zawsze możesz liczyć</b> na poniższe usługi:</h2>
-
-    @{
-        int x = 0;
-
-        foreach (var item in Model.ListInfoFirstPage.Take(2))
-        {
-
-            if (x % 2 == 0)
-            {
-                <figure class="snip0057 red">
-                    <figcaption>
-                        <h2>
-                            <font size="5">   @Html.Raw(item.Title) </font>
-                        </h2>
-
-                        @Html.Raw(item.UnderString)
-
-                        <p><a class="btn btn-default" href="@Url.Action("Menu","Home")">Zobacz menu &raquo;</a></p>
-                    </figcaption>
-                    <div class="image"><img src="@item.Files" alt="sample4" /></div>
-                    <div class="position">
-                        @Html.Raw(item.UnderTitle)
-                    </div>
-                </figure>
-            }
-
-            if (x % 2 == 1)
-            {
-
-                <figure class="snip0057 blue">
-                    <figcaption>
-                        <h2>
-                            <font size="5">   @Html.Raw(item.Title) </font>
-                        </h2>
-
-                        @Html.Raw(item.UnderString)
-
-                    </figcaption>
-                    <div class="image"><img src="@item.Files" alt="sample4" /></div>
-                    <div class="position">
-                        @Html.Raw(item.UnderTitle)
-                    </div>
-                </figure>
-            }
-
-            x++;
-        }
-    }
-
-
-
-
-
-
-</div>
-
-
-
-
-@*<div class="row centered1">
-
-        <div class="col-sm-4 col-md-4">
-            <h2>Kawa 1</h2>
-            <img src="~/Content/Image/latte-spider-web.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <h2>Kawa 2</h2>
-            <img src="~/Content/Image/1-1267462282CoNq.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <h2>Kawa 3</h2>
-            <img src="~/Content/Image/coffee-latte-11284391087Ksg2.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
-
-
-
-
-<h2 class="text-center">Zapoznaj się z opiniami o naszej firmie:</h2>
-
-@foreach (var item in Model.ListInfPromoFirstPage.Take(1))
-{
-    if (item.Active == true)
-    {
-        <div id="myModal" class="modal fade">
-
-            <div class="card">
-                <h1>@item.Title</h1>
-                <img src="~/Content/Image/Icon/@item.InfPromoChoosePicture.ChoosePicture" alt="Promo" style="width:30%">
-                <h2>@item.MainString</h2>
-
-                <p class="title">@item.UnderString</p>
-
-                <div style="margin: 12px 0;">
-                    <p>Więcej o nas na:</p>
-                    <a href="@item.LinkedUrl"><i class="fa fa-linkedin"></i></a>
-                    <a href="@item.FacebookUrl"><i class="fa fa-facebook"></i></a>
-                </div>
-                <p>
-
-                    <button type="button" onclick="location.href=('@Url.Action("Coupons", "Home")')">Zobacz kupony i promocje</button>
                 </p>
+                <p><a href="@Url.Action("Event", "Home")" class="btn btn-primary btn-lg">Zobacz co organizujemy &raquo;</a></p>
+
             </div>
-        </div>
-    }
+        </section>
+
+
+        <section>
+            <div class="row centered1">
+                <h2 class="text-center"><b>U nas zawsze możesz liczyć</b> na poniższe usługi:</h2>
+
+                @{
+                    int x = 0;
+
+                    foreach (var item in Model.ListInfoFirstPage.Take(2))
+                    {
+
+                        if (x % 2 == 0)
+                        {
+                    <figure class="snip0057 red">
+                        <figcaption>
+                            <h2>
+                                <font size="5">   @Html.Raw(item.Title) </font>
+                            </h2>
+
+                            @Html.Raw(item.UnderString)
+
+                            <p><a class="btn btn-default" href="@Url.Action("Menu", "Home")">Zobacz menu &raquo;</a></p>
+                        </figcaption>
+                        <div class="image"><img src="@item.Files" alt="sample4" /></div>
+                        <div class="position">
+                            @Html.Raw(item.UnderTitle)
+                        </div>
+                    </figure>
+                        }
+
+                        if (x % 2 == 1)
+                        {
+
+            <figure class="snip0057 blue">
+                <figcaption>
+                    <h2>
+                        <font size="5">   @Html.Raw(item.Title) </font>
+                    </h2>
+
+                    @Html.Raw(item.UnderString)
+
+                </figcaption>
+                <div class="image"><img src="@item.Files" alt="sample4" /></div>
+                <div class="position">
+                    @Html.Raw(item.UnderTitle)
+                </div>
+            </figure>
+                            }
+
+                            x++;
+                        }
+                    }
+
+            </div>
+        </section>
+
+
+
+        @*<div class="row centered1">
+
+            <div class="col-sm-4 col-md-4">
+                <h2>Kawa 1</h2>
+                <img src="~/Content/Image/latte-spider-web.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <h2>Kawa 2</h2>
+                <img src="~/Content/Image/1-1267462282CoNq.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <h2>Kawa 3</h2>
+                <img src="~/Content/Image/coffee-latte-11284391087Ksg2.jpg" class="img-circle" alt="Cinque Terre" width="200" height="200">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>
+        </div>*@
+
+
+
+        <section>
+            <h2 class="text-center">Zapoznaj się z opiniami o naszej firmie:</h2>
+
+            @foreach (var item in Model.ListInfPromoFirstPage.Take(1))
+    {
+        if (item.Active == true)
+        {
+            <div id="myModal" class="modal fade">
+
+                <div class="card">
+                    <h1>@item.Title</h1>
+                    <img src="~/Content/Image/Icon/@item.InfPromoChoosePicture.ChoosePicture" alt="Promo" style="width:30%">
+                    <h2>@item.MainString</h2>
+
+                    <p class="title">@item.UnderString</p>
+
+                    <div style="margin: 12px 0;">
+                        <p>Więcej o nas na:</p>
+                        <a href="@item.LinkedUrl"><i class="fa fa-linkedin"></i></a>
+                        <a href="@item.FacebookUrl"><i class="fa fa-facebook"></i></a>
+                    </div>
+                    <p>
+
+                        <button type="button" onclick="location.href=('@Url.Action("Coupons", "Home")')">Zobacz kupony i promocje</button>
+                    </p>
+                </div>
+            </div>
+}
 
 }
 
 
-
-
-
-
-
-@foreach (var item in Model.ListReviews.Take(5))
-{
+            @foreach (var item in Model.ListReviews.Take(5))
+            {
         <div class="container_message">
 
             @if (((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) >= 4.0m)
             {
 
 
-                  <img src="~/Content/Image/Icon/icons8-heart-outline-80.png" alt="Avatar" style="width: 70px; height: 70px;">
+        <img src="~/Content/Image/Icon/icons8-heart-outline-80.png" alt="Avatar" style="width: 70px; height: 70px;">
 
-            }
-            else if (((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) < 4.0m &&
-                ((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) >= 2.5m)
-            {
-                  <img src="~/Content/Image/Icon/icons8-good-quality-80.png" alt="Avatar" style="width: 70px; height: 70px;">
+}
+else if (((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) < 4.0m &&
+((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3m) >= 2.5m)
+{
+        <img src="~/Content/Image/Icon/icons8-good-quality-80.png" alt="Avatar" style="width: 70px; height: 70px;">
 
-            }
-            else
-            {
-                  <img src="~/Content/Image/Icon/icons8-unlike-80.png" alt="Avatar" style="width: 70px; height: 70px;">
+}
+else
+{
+        <img src="~/Content/Image/Icon/icons8-unlike-80.png" alt="Avatar" style="width: 70px; height: 70px;">
 
-            }
-                  <p class="alignright">
-                      @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId):
-                      @{
-                          for (int i = 0; i < item.RatingEmployees.RatingEmployeesInt; i++)
-                          {
-                  <i class="fa fa-star" style="color:#feb236;"></i>
-                          }
-                          for (int i = 0; i < 5 - item.RatingEmployees.RatingEmployeesInt; i++)
-                          {
-                  <i class="fa fa-star-o"></i>
-                              }
+}
+            <p class="alignright">
+                @Html.DisplayNameFor(model => model.Reviews.RatingEmployees.RatingEmployeesId):
+                @{
+                    for (int i = 0; i < item.RatingEmployees.RatingEmployeesInt; i++)
+                    {
+                <i class="fa fa-star" style="color:#feb236;"></i>
+                    }
+                    for (int i = 0; i < 5 - item.RatingEmployees.RatingEmployeesInt; i++)
+                    {
+        <i class="fa fa-star-o"></i>
+}
 
 
-                          }
-                      @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId):
-                      @{
-                          for (int i = 0; i < item.RatingMeals.RatingPlaceInt; i++)
-                          {
-                  <i class="fa fa-star" style="color:#feb236;"></i>
-                          }
-                          for (int i = 0; i < 5 - item.RatingMeals.RatingPlaceInt; i++)
-                          {
-                  <i class="fa fa-star-o"></i>
-                              }
-                          }
-                      @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId):
-                      @{
-                          for (int i = 0; i < item.RatingPlace.RatingPlaceInt; i++)
-                          {
-                  <i class="fa fa-star" style="color:#feb236;"></i>
-                          }
-                          for (int i = 0; i < 5 - item.RatingPlace.RatingPlaceInt; i++)
-                          {
-                  <i class="fa fa-star-o"></i>
-                              }
-                          }
-                  </p>
+                }
+                @Html.DisplayNameFor(model => model.Reviews.RatingMeals.RatingMealsId):
+                @{
+                    for (int i = 0; i < item.RatingMeals.RatingPlaceInt; i++)
+                    {
+                <i class="fa fa-star" style="color:#feb236;"></i>
+                    }
+                    for (int i = 0; i < 5 - item.RatingMeals.RatingPlaceInt; i++)
+                    {
+        <i class="fa fa-star-o"></i>
+}
+                }
+                @Html.DisplayNameFor(model => model.Reviews.RatingPlace.RatingPlaceId):
+                @{
+                    for (int i = 0; i < item.RatingPlace.RatingPlaceInt; i++)
+                    {
+                <i class="fa fa-star" style="color:#feb236;"></i>
+                    }
+                    for (int i = 0; i < 5 - item.RatingPlace.RatingPlaceInt; i++)
+                    {
+        <i class="fa fa-star-o"></i>
+                    }
+                }
+            </p>
             <p><span>@Html.DisplayNameFor(model => model.Reviews.Name): @Html.DisplayFor(modelItem => item.Name). </span>           </p>
             <p class="alignright">
                 <b>  Ocena ogólna : @(((Convert.ToDecimal(@item.RatingMeals.RatingPlaceInt + @item.RatingPlace.RatingPlaceInt + @item.RatingEmployees.RatingEmployeesInt)) / 3).ToString("#.##"))</b>
@@ -222,38 +216,41 @@
         </div>
 
 
-}
+                    }
+        </section>
+        <section>
+            <h4 class="text-left">
+                @Html.ActionLink("Dodaj i swoją opinię!", "Create", "Home")
+            </h4>
 
-<h4 class="text-left">
-@Html.ActionLink("Dodaj i swoją opinię!", "Create", "Home")
-</h4>
 
+            <h2 class="text-center">Już dziś możesz się zapisać do informatora:</h2>
 
-<h2 class="text-center">Już dziś możesz się zapisać do informatora:</h2>
+            <div id="newsletter-container">
 
-<div id="newsletter-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
+                            <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
+                            @using (Html.BeginForm("AddNewsletter", "home"))
+                            {
+                        @Html.AntiForgeryToken()
 
-<div class="container">
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-        <h3>Newsletter: promocje i nowości - Poznaj je już teraz!</h3>
-        @using(Html.BeginForm("AddNewsletter", "home"))
-        {
-            @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
 
-        @*<input type="text" name="newsletter" required="" placeholder="Wprowadź swój adres email">*@
-
-                    @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
-                    @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
-            <input type="submit" class="btn btn-custom-3" value="Zapisz się">
-            }
-        </div>
-        </div>
-    </div>
-</div>
-
+                        @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
+                        @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
+                        <input type="submit" class="btn btn-custom-3" value="Zapisz się">
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
 
 
 @section Scripts {
