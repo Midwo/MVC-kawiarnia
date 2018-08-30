@@ -237,6 +237,12 @@ namespace MVC_kawiarnia.Controllers
             return View();
         }
 
+        public ActionResult Statute()
+        {
+            ViewBag.Message = "Regulamin Kawiarni";
+
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

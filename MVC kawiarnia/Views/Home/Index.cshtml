@@ -242,25 +242,41 @@ else
 
                         @Html.EditorFor(model => model.NewsletterListEmail.Email, new { htmlAttributes = new { placeholder = "Wprowadź swój adres email", name = "newsletter" } })
                         @Html.ValidationMessageFor(model => model.NewsletterListEmail.Email, "", new { @class = "text-danger" })
-                        <input id="buttonNewsletter" type="submit" class="btn btn-custom-3" value="Zapisz się" disabled title="Zgodę daj!">
-}
+
+                            <div class="tooltip-wrapper newsletterwrap disabled" data-title="Wymagana zgoda!">
+
+                                <input id="buttonNewsletter" type="submit" class="btn btn-custom-3" value="Zapisz się" disabled>
+                            </div>
+                            }
                         </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-                            <input type="checkbox" id="myCheck" onclick="EnableNewsletter()"> Zgoda na przetwarzanie danych
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 clearfix" id="CheckboxContent">
+                            <input type="checkbox" id="myCheck" onclick="EnableNewsletter()">
+                            “Wyrażam zgodę na przesyłanie przez użytkowników strony na mój, podany w kawiarni, adres e-mail wiadomości marketingowych dotyczących testowania działania kawiarni. Dane przetwarzane będą zgodnie z regulaminem kawiarni. Rozumiem, że posiadam prawo w dowolnym momencie wycofać zgodę poprzez: kontakt z administratorem pod adresem michal.dwojak92@gmail.com, ręcznego wycofania zgody logując się do systemu kawiarni oraz wycofania zgody poprzez link w otrzymanych wiadomościach e-mail. Jestem świadomy/świadoma, że każdy użytkownik zalogowany do kawiarni widzi mój adres e-mail i może wysłać przez system kawiarni do mnie wiadomość oraz mnie usunąć. Rozumiem również, że za treści wiadomości wysyłanych administrator strony nie odpowiada.”
                             <script>
+
+                                $(function () {
+                                    $('.tooltip-wrapper').tooltip({ position: "bottom" });
+                                });
+
+
                                 function EnableNewsletter() {
                                     var checkBox = document.getElementById("myCheck");
                                     if (checkBox.checked == true) {
                                         document.getElementById("buttonNewsletter").disabled = false;
+                                        //$('#hmm').attr('data-title', '');
+                                        //$('#hmm').removeClass('tooltip-wrapper disabled');
                                     }
                                     else {
                                         document.getElementById("buttonNewsletter").disabled = true;
+
                                     }
                                 }
                             </script>
 
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>

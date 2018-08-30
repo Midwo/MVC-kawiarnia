@@ -1339,9 +1339,9 @@ body.modal-open,
 
 
 
-.tooltip-wrapper {
+.tooltip-wrapper.newsletterwrap {
     display: inline-block; /* display: block works as well */
-    margin: 50px; /* make some space so the tooltip is visible */
+    /*margin: 50px;*/ /* make some space so the tooltip is visible */
 }
 
     .tooltip-wrapper .btn[disabled] {
@@ -1353,3 +1353,21 @@ body.modal-open,
         /* OPTIONAL pointer-events setting above blocks cursor setting, so set it here */
         cursor: not-allowed;
     }
+
+.tooltip-wrapper.contactwrap {
+    /*display: inline-block; /* display: block works as well */
+    /*margin: 50px;*/ /* make some space so the tooltip is visible */
+}
+
+#buttonLogin {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+#LoginConsent{
+    padding-left: 15px;
+}
+
+#CheckboxContent{
+    text-align: justify;
+    margin-top: 5px;
+}

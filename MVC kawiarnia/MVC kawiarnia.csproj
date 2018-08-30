@@ -672,6 +672,7 @@
     <Content Include="Views\Products\Coffees.cshtml" />
     <Content Include="Views\Products\Teas.cshtml" />
     <Content Include="Views\ErrorPage\ErrorMessage.cshtml" />
+    <Content Include="Views\Home\Statute.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

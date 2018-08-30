@@ -100,11 +100,41 @@
 
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Utwórz" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-1 tooltip-wrapper newreviews disabled clearfix" data-title="Wymagana zgoda!">
+                <input type="submit" value="Utwórz" class="btn btn-default" id="buttonReviews" disabled />
+
+
+            </div>
+            <div class="col-md-offset-2 col-md-10 clearfix" id="CheckboxContent">
+                <input type="checkbox" id="myCheck" onclick="EnableReviews()">
+                “Wyrażam zgodę na wyświetlanie napisanych przeze mnie opinii przez innych użytkowników jak ich modyfikację oraz usunięcie. Rozumiem, że posiadam prawo w dowolnym momencie wycofać zgodę poprzez: kontakt z administratorem pod adresem michal.dwojak92@gmail.com oraz ręcznego usunięcia opinii logując się do systemu kawiarni. Jestem świadomy/świadoma, zakazu podawania danych umożliwiających rozpoznanie mnie oraz innych osób trzecich. Rozumiem, że treści zamieszczone na stronie nie mogą być obraźliwe, wulgarne ani w jakikolwiek inny sposób odbiegać od powszechnych norm.”
             </div>
         </div>
-    </div>
+
+            <script>
+
+                $(function () {
+                    $('.tooltip-wrapper').tooltip({ position: "bottom" });
+                });
+
+
+                function EnableReviews() {
+                    var checkBox = document.getElementById("myCheck");
+                    if (checkBox.checked == true) {
+                        document.getElementById("buttonReviews").disabled = false;
+                        //$('#hmm').attr('data-title', '');
+                        //$('#hmm').removeClass('tooltip-wrapper disabled');
+                    }
+                    else {
+                        document.getElementById("buttonReviews").disabled = true;
+
+                    }
+                }
+            </script>
+
+
+        </div>
+
 }
 
 <div>

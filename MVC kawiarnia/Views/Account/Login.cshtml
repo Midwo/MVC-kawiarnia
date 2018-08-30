@@ -36,11 +36,47 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Zaloguj" class="btn btn-default" />
+                <div class="form-group" id="LoginConsent">
+                    <div class="col-md-offset-2 col-1 tooltip-wrapper newsletterwrap disabled" data-title="Wymagana zgoda!">
+                        <input id="buttonLogin" type="submit" value="Zaloguj" class="btn btn-default" disabled />
                     </div>
+                    <div class="col-md-offset-2 col-1" id="buttonLogin">
+                        <input type="checkbox" id="myCheck1" onclick="EnableLogin()">
+                        “Rozumiem, że otrzymuję dostęp do danych zawartych w systemie kawiarni i deklaruję ich nie wykorzystywać poza tym systemem. Jednocześnie oświadczam, że nie będę wprowadzał danych w postaci adresów kontaktowych (email oraz nr telefonu) nie będących w moim posiadaniu.”
+                    </div>
+                    <div class="col-md-offset-2 col-1" id="buttonLogin">
+                        <input type="checkbox" id="myCheck2" onclick="EnableLogin()">
+                        "Zapoznałem/łam się z <a href="@Url.Action("Policy","Home")">polityką prywatności</a> oraz z <a href="@Url.Action("Statute","Home")">regulaminem kawiarni</a> i deklaruję przestrzegać ich."
+                    </div>
+
+
+                    <script>
+
+                        $(function () {
+                            $('.tooltip-wrapper').tooltip({ position: "bottom" });
+                        });
+
+
+                        function EnableLogin() {
+                            var checkBox1 = document.getElementById("myCheck1");
+                            var checkBox2 = document.getElementById("myCheck2");
+                            if (checkBox1.checked == true && checkBox2.checked == true) {
+                                document.getElementById("buttonLogin").disabled = false;
+                                //$('#hmm').attr('data-title', '');
+                                //$('#hmm').removeClass('tooltip-wrapper disabled');
+                            }
+                            else {
+                                document.getElementById("buttonLogin").disabled = true;
+
+                            }
+                        }
+                    </script>
+
+
                 </div>
+
+
+
                 @*<p>
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>*@

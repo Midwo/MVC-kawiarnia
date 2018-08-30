@@ -42,62 +42,62 @@
         <div class="well well-sm text-center">
             <h3><strong>Nasza lokalizacja, dane kontaktowe i godziny otwarcia:</strong></h3>
             @foreach (var item in Model.ListContact)
-            {
+        {
 
-                <div class="chip">
-                    <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Adress)
-                </div>
-                <div class="chip">
-                    <i class="fa fa-phone fa-2x" aria-hidden="true"></i>  @Html.DisplayFor(modelItem => item.Phone)
-                </div>
-                <div class="chip">
-                    <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Company_name)
-                </div>
+            <div class="chip">
+                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Adress)
+            </div>
+            <div class="chip">
+                <i class="fa fa-phone fa-2x" aria-hidden="true"></i>  @Html.DisplayFor(modelItem => item.Phone)
+            </div>
+            <div class="chip">
+                <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Company_name)
+            </div>
 
-                <div class="chip">
-                    <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.Email)
-                </div>
+            <div class="chip">
+                <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.Email)
+            </div>
 
-                <br />
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-monday-100.png" alt="Mo" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.Mo)
-                </div>
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-tuesday-100.png" alt="Tu" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.Tu)
-                </div>
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-wednesday-100.png" alt="We" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.We)
-                </div>
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-thursday-100.png" alt="Th" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.Th)
-                </div>
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-friday-100.png" alt="Fr" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.Fr)
-                </div>
-                <br />
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-saturday-100.png" alt="Sa" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.Sa)
-                </div>
-                <div class="chip">
-                    <img src="~/Content/Image/Icon/icons8-sunday-100.png" alt="Su" width="96" height="96">
-                    @Html.DisplayFor(modelItem => item.Su)
-                </div>
-            }
+            <br />
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-monday-100.png" alt="Mo" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.Mo)
+            </div>
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-tuesday-100.png" alt="Tu" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.Tu)
+            </div>
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-wednesday-100.png" alt="We" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.We)
+            </div>
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-thursday-100.png" alt="Th" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.Th)
+            </div>
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-friday-100.png" alt="Fr" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.Fr)
+            </div>
+            <br />
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-saturday-100.png" alt="Sa" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.Sa)
+            </div>
+            <div class="chip">
+                <img src="~/Content/Image/Icon/icons8-sunday-100.png" alt="Su" width="96" height="96">
+                @Html.DisplayFor(modelItem => item.Su)
+            </div>
+    }
         </div>
 
         <div class="row">
             <div class="col-md-7">
                 @foreach (var item in Model.ListContact)
-                {
-                    <iframe width="100%" height="380" frameborder="0" style="border:0" src="@Html.DisplayFor(modelItem => item.Url)" allowfullscreen></iframe>
-                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>*@
-                }
+            {
+                <iframe width="100%" height="380" frameborder="0" style="border:0" src="@Html.DisplayFor(modelItem => item.Url)" allowfullscreen></iframe>
+                @*<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+        }
             </div>
             <div class="col-md-5">
                 <h4><strong>Napisz do nas! Odpowiemy Ci niezwłocznie.</strong></h4>
@@ -111,28 +111,28 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group">
-      
-                    @Html.EditorFor(model => model.ContactMessage.Name, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Imię" } })
-                    @Html.ValidationMessageFor(model => model.ContactMessage.Name, "", new { @class = "text-danger" })
-               
+
+                @Html.EditorFor(model => model.ContactMessage.Name, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Imię" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.Name, "", new { @class = "text-danger" })
+
             </div>
 
             <div class="form-group">
-                    @Html.EditorFor(model => model.ContactMessage.Email, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Twój adres E-mail" } })
-                    @Html.ValidationMessageFor(model => model.ContactMessage.Email, "", new { @class = "text-danger" })
-            
+                @Html.EditorFor(model => model.ContactMessage.Email, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Twój adres E-mail" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.Email, "", new { @class = "text-danger" })
+
             </div>
 
             <div class="form-group">
-                    @Html.EditorFor(model => model.ContactMessage.PhoneNumber, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Numer Telefonu: 000-000-000" } })
-                    @Html.ValidationMessageFor(model => model.ContactMessage.PhoneNumber, "", new { @class = "text-danger" })
-              
+                @Html.EditorFor(model => model.ContactMessage.PhoneNumber, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Numer Telefonu: 000-000-000" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.PhoneNumber, "", new { @class = "text-danger" })
+
             </div>
 
             <div class="form-group">
-                    @Html.EditorFor(model => model.ContactMessage.QuestionText, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Wiadomość - Treść" } })
-                    @Html.ValidationMessageFor(model => model.ContactMessage.QuestionText, "", new { @class = "text-danger" })
-            
+                @Html.EditorFor(model => model.ContactMessage.QuestionText, new { htmlAttributes = new { @class = "form-control MiddleSize", placeholder = "Wiadomość - Treść" } })
+                @Html.ValidationMessageFor(model => model.ContactMessage.QuestionText, "", new { @class = "text-danger" })
+
             </div>
 
 
@@ -145,22 +145,47 @@
             </div>
 
 
-        
 
-                    <button class="btn btn-default" type="submit" name="button">
-                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Wyślij
-                    </button>
-            
-
-
-}
+            <div class="tooltip-wrapper contactwrap disabled" data-title="Wymagana zgoda!">
+                <button class="btn btn-default" type="submit" name="button" id="buttonContact" disabled>
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Wyślij
+                </button>
+            </div>
+                }
 
 
 
 
 
             </div>
+            </div>
+
+      <div id="CheckboxContent">
+        <input type="checkbox" id="myCheck" onclick="EnableContact()">
+           “Wyrażam zgodę na kontakt przez użytkowników (Listy osób wprowadzonych do odbioru wiadomośći kontaktowych - pytań) ze strony na mój, podany w kawiarni, adres e-mail oraz numer telefonu wiadomości - odpowiedzi na zadane pytania w celach testowania działania kawiarni. Dane przetwarzane będą zgodnie z regulaminem kawiarni. Pytania oraz dane zawarte w tym formularzu nie są archiwizowane w systemie (bazie danych) i znajdować się będą wyłącznie na prywatnych skrzynkach pocztowych osób dodanych do odbioru pytań w systemie kawiarni. Jestem świadomy/świadoma, że każdy użytkownik wpisany do listy odbiorczej w systemie kawiarni widzi mój adres e-mail i numer telefonu oraz może wysłać przez swoją prywatną pocztę do mnie wiadomość oraz skontaktować się za pomocą wprowadzonego numeru telefonu. Rozumiem również, że za treści wiadomości wysyłanych administrator strony nie odpowiada.”
         </div>
+            <script>
+
+            $(function () {
+                $('.tooltip-wrapper').tooltip({ position: "bottom" });
+            });
+
+
+            function EnableContact() {
+                var checkBox = document.getElementById("myCheck");
+                if (checkBox.checked == true) {
+                    document.getElementById("buttonContact").disabled = false;
+                    //$('#hmm').attr('data-title', '');
+                    //$('#hmm').removeClass('tooltip-wrapper disabled');
+                }
+                else {
+                    document.getElementById("buttonContact").disabled = true;
+
+                }
+            }
+        </script>
+
+
     </div>
 
 </section>
